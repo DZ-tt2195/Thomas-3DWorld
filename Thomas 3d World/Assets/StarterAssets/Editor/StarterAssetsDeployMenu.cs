@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using StarterAssetsPackageChecker;
 using UnityEditor;
 using UnityEngine;
 using Object = UnityEngine.Object;
@@ -27,6 +28,16 @@ namespace StarterAssets
         private const string CinemachineTargetTag = "CinemachineTarget";
 
         private static GameObject _cinemachineVirtualCamera;
+        
+        /// <summary>
+        /// Deletes the scripting define set by the Package Checker.
+        /// See Assets/Editor/PackageChecker/PackageChecker.cs for more information
+        /// </summary>
+        [MenuItem(MenuRoot + "/Reinstall Dependencies", false)]
+        static void ResetPackageChecker()
+        {
+            PackageChecker.RemovePackageCheckerScriptingDefine();
+        }
 
 #if STARTER_ASSETS_PACKAGES_CHECKED
         private static void CheckCameras(Transform targetParent, string prefabFolder)
