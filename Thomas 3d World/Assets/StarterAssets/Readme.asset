@@ -40,7 +40,7 @@ MonoBehaviour:
     linkText: 
     url: 
   - heading: 'Get started  '
-    text: In StarterAssets/ThirdPersonController/Scenes or StarterAssets/FirstPersonController/Scenes,
+    text: e controller settings to your liking.r/Scenes or StarterAssets/FirstPersonController/Scenes,
       you will find the Playground Scene. Here you can use the Starter Assets controller
       in a simple playground environment and start adjusting the controller settings
       to your liking.
