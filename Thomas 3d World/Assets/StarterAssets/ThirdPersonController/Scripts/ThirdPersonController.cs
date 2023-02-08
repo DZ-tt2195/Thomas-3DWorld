@@ -15,6 +15,7 @@ namespace StarterAssets
 #endif
     public class ThirdPersonController : MonoBehaviour
     {
+        public static ThirdPersonController instance;
         [Header("Player")]
         [Tooltip("Move speed of the character in m/s")]
         public float MoveSpeed = 2.0f;
@@ -126,6 +127,7 @@ namespace StarterAssets
 
         private void Awake()
         {
+            instance = this;
             // get a reference to our main camera
             if (_mainCamera == null)
             {
@@ -153,6 +155,7 @@ namespace StarterAssets
             _fallTimeoutDelta = FallTimeout;
         }
 
+
         private void Update()
         {
             _hasAnimator = TryGetComponent(out _animator);
@@ -162,7 +165,7 @@ namespace StarterAssets
             Move();
 
             if (transform.position.y < -10)
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                Player.instance.Died();
         }
 
         private void LateUpdate()
