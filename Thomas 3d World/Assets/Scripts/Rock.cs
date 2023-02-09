@@ -51,10 +51,10 @@ public class Rock : MonoBehaviour
                 rb.AddForce(Vector3.left);
                 break;
             case Direction.up:
-                rb.AddForce(Vector3.up);
+                rb.AddForce(Vector3.forward);
                 break;
             case Direction.down:
-                rb.AddForce(Vector3.right);
+                rb.AddForce(Vector3.back);
                 break;
         }
     }
