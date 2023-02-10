@@ -14,7 +14,6 @@ public class Trapdoor : MonoBehaviour
 
     IEnumerator Delete()
     {
-        Debug.Log("trap triggered");
         yield return new WaitForSeconds(3f);
         triggered = true;
     }

@@ -18,7 +18,6 @@ public class RockGenerator : MonoBehaviour
 
     IEnumerator SpawnRock()
     {
-        Debug.Log("create rock");
         Transform newRock = Instantiate(rockclone);
         newRock.transform.position = this.transform.position;
         newRock.transform.localScale = new Vector3(scale, scale, scale);

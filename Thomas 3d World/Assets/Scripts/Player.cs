@@ -5,12 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-    public static Player instance; 
+    public static Player instance;
+    Vector3 startingPos;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        instance = this;
+        if (instance == null)
+        {
+            instance = this;
+        }
     }
 
     public void Died()
