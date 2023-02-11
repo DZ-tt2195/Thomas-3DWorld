@@ -14,34 +14,29 @@ public class Rock : MonoBehaviour
         switch (direction)
         {
             case Direction.right:
-                rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY;
+                rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezePositionY;
                 break;
             case Direction.left:
-                rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY;
+                rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezePositionY;
                 break;
             case Direction.up:
-                rb.constraints = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY;
+                rb.constraints = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezePositionY;
                 break;
             case Direction.down:
-                rb.constraints = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY;
+                rb.constraints = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezePositionY;
                 break;
         }
     }
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
-            Player.instance.Died();
         if (other.CompareTag("Rock"))
-            Destroy(transform.parent.gameObject);
+            Destroy(this.gameObject);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.y < -10)
-            Destroy(transform.parent.gameObject);
-
         switch (direction)
         {
             case Direction.right:

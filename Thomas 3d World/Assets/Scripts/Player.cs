@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     public static Player instance;
-    Vector3 startingPos;
 
     // Start is called before the first frame update
     void Awake()
@@ -17,8 +16,4 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void Died()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
 }

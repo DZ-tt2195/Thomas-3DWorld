@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RockGenerator : MonoBehaviour
 {
-    public Transform rockclone;
+    public Rock rockclone;
     public Rock.Direction rockDirection;
     public float scale;
     public float delay;
@@ -18,10 +18,10 @@ public class RockGenerator : MonoBehaviour
 
     IEnumerator SpawnRock()
     {
-        Transform newRock = Instantiate(rockclone);
+        Rock newRock = Instantiate(rockclone);
         newRock.transform.position = this.transform.position;
         newRock.transform.localScale = new Vector3(scale, scale, scale);
-        newRock.GetChild(0).GetComponent<Rock>().direction = rockDirection;
+        newRock.GetComponent<Rock>().direction = rockDirection;
         yield return new WaitForSeconds(delay);
         StartCoroutine(SpawnRock());
     }

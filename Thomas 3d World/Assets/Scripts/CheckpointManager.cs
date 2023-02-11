@@ -22,16 +22,6 @@ public class CheckpointManager : MonoBehaviour
         }
     }
 
-    public IEnumerator MovePlayer()
-    {
-        if (checkpointSet)
-        {
-            yield return new WaitForSeconds(1f);
-            Player.instance.transform.position = this.transform.position;
-        }
-
-    }
-
     public void NewCheckpoint(Checkpoint x)
     {
         if (lastCheckpoint != x)
