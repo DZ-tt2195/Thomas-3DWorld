@@ -181,6 +181,7 @@ namespace StarterAssets
             Debug.Log("died");
             dead = true;
             yield return new WaitForSeconds(0.2f);
+            CheckpointManager.instance.deaths++;
             dead = false;
         }
 
@@ -189,6 +190,12 @@ namespace StarterAssets
             if (other.CompareTag("Rock"))
             {
                 StartCoroutine(Died());
+            }
+
+            else if (other.CompareTag("Jewel"))
+            {
+                Destroy(other.gameObject);
+                CheckpointManager.instance.collectibles++;
             }
         }
 
