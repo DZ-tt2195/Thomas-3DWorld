@@ -5,6 +5,7 @@ using UnityEngine;
 public class Trapdoor : MonoBehaviour
 {
     bool triggered = false;
+    public float timer;
 
     public void OnTriggerEnter(Collider other)
     {
@@ -14,7 +15,7 @@ public class Trapdoor : MonoBehaviour
 
     IEnumerator Delete()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(timer);
         triggered = true;
     }
 

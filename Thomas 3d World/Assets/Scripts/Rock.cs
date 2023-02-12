@@ -5,7 +5,7 @@ using UnityEngine;
 public class Rock : MonoBehaviour
 {
     public Rigidbody rb;
-    public enum Direction { up, down, left, right }
+    public enum Direction { forward, backward, left, right }
     public Direction direction;
 
     private void Start()
@@ -19,10 +19,10 @@ public class Rock : MonoBehaviour
             case Direction.left:
                 rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezePositionY;
                 break;
-            case Direction.up:
+            case Direction.forward:
                 rb.constraints = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezePositionY;
                 break;
-            case Direction.down:
+            case Direction.backward:
                 rb.constraints = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezePositionY;
                 break;
         }
@@ -45,10 +45,10 @@ public class Rock : MonoBehaviour
             case Direction.left:
                 rb.AddForce(Vector3.left);
                 break;
-            case Direction.up:
+            case Direction.forward:
                 rb.AddForce(Vector3.forward);
                 break;
-            case Direction.down:
+            case Direction.backward:
                 rb.AddForce(Vector3.back);
                 break;
         }
