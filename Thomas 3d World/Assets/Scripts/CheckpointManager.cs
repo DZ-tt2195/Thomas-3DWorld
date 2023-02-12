@@ -73,7 +73,7 @@ public class CheckpointManager : MonoBehaviour
     string ConvertTimeToString(TimeSpan x)
     {
         string part = x.Seconds < 10 ? $"0{x.Seconds}" : $"{x.Seconds}";
-        return $"{x.Minutes}:" + part + $".{x.Milliseconds}";
+        return $"{x.Minutes}:" + part;
     }
 
     int CalculateFrames()

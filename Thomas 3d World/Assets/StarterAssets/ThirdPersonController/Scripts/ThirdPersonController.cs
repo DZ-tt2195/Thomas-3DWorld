@@ -168,6 +168,7 @@ namespace StarterAssets
                 JumpAndGravity();
                 GroundedCheck();
                 Move();
+                Restart();
             }
         }
 
@@ -242,6 +243,15 @@ namespace StarterAssets
             // Cinemachine will follow this target
             CinemachineCameraTarget.transform.rotation = Quaternion.Euler(_cinemachineTargetPitch + CameraAngleOverride,
                 _cinemachineTargetYaw, 0.0f);
+        }
+
+        private void Restart()
+        {
+            if (_input.restart)
+            {
+                _input.restart = false;
+                StartCoroutine(Died());
+            }
         }
 
         private void Move()
