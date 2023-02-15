@@ -2,6 +2,7 @@ using UnityEngine;
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 using UnityEngine.InputSystem;
 #endif
+using UnityEngine.SceneManagement;
 
 namespace StarterAssets
 {
@@ -74,6 +75,12 @@ namespace StarterAssets
 		{
 			restart = newRestartState;
 		}
+
+		public void OnHardRestart(InputValue value)
+		{
+			SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+		}
+
 #endif
 
 		private void OnApplicationFocus(bool hasFocus)
