@@ -3,6 +3,9 @@
 using UnityEngine.InputSystem;
 #endif
 using UnityEngine.SceneManagement;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 /* Note: animations are called via the controller for both the character and capsule using animator null checks
  */
@@ -15,6 +18,8 @@ namespace StarterAssets
 #endif
     public class ThirdPersonController : MonoBehaviour
     {
+        public List<GameObject> renderers = new List<GameObject>();
+
         public static ThirdPersonController instance;
         [Header("Player")]
         [Tooltip("Move speed of the character in m/s")]
@@ -136,8 +141,20 @@ namespace StarterAssets
             }
         }
 
+        void SetToColor(int n)
+        {
+            for (int i = 0; i<renderers.Count; i++)
+            {
+                if (i == n)
+                    renderers[i].SetActive(true);
+                else
+                    renderers[i].SetActive(false);
+            }
+        }
+
         private void Start()
         {
+            SetToColor(0);
             _cinemachineTargetYaw = CinemachineCameraTarget.transform.rotation.eulerAngles.y;
 
             _hasAnimator = TryGetComponent(out _animator);
@@ -177,11 +194,14 @@ namespace StarterAssets
             CameraRotation();
         }
 
-        System.Collections.IEnumerator Died()
+        IEnumerator Died()
         {
             Debug.Log("died");
             dead = true;
             yield return new WaitForSeconds(0.2f);
+            SetToColor(0);
+
+            this.gameObject.layer = 7;
             UIManager.instance.deaths++;
             dead = false;
         }
@@ -197,6 +217,23 @@ namespace StarterAssets
             {
                 Destroy(other.gameObject);
                 UIManager.instance.collectibles++;
+            }
+
+            else if (other.CompareTag("Color Capsule"))
+            {
+                this.gameObject.layer = other.gameObject.layer;
+                switch (gameObject.layer)
+                {
+                    case 0:
+                        SetToColor(0);
+                        break;
+                    case 3: //orange
+                        SetToColor(1);
+                        break;
+                    case 6: //blue
+                        SetToColor(2);
+                        break;
+                }
             }
         }
 
