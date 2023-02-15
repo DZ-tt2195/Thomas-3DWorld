@@ -6,6 +6,8 @@ public class RockGenerator : MonoBehaviour
 {
     public Rock rockclone;
     public Rock.Direction rockDirection;
+    public enum RockLayer { Default, Orange, Blue };
+    public RockLayer spawnLayer;
     public float scale;
     public float delay;
 
@@ -19,6 +21,7 @@ public class RockGenerator : MonoBehaviour
     IEnumerator SpawnRock()
     {
         Rock newRock = Instantiate(rockclone);
+        newRock.gameObject.layer = LayerMask.NameToLayer(spawnLayer.ToString());
         newRock.transform.position = this.transform.position;
         newRock.transform.localScale = new Vector3(scale, scale, scale);
         newRock.GetComponent<Rock>().direction = rockDirection;

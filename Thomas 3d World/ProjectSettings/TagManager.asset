@@ -5,15 +5,19 @@ TagManager:
   serializedVersion: 2
   tags:
   - CinemachineTarget
+  - Rock
+  - Checkpoint
+  - Jewel
+  - Ground
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Strawberry
+  - Orange
   - Water
   - UI
-  - RockWall
-  - 
+  - Blue
+  - Player
   - 
   - 
   - 

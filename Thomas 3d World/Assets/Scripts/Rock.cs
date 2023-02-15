@@ -7,9 +7,23 @@ public class Rock : MonoBehaviour
     public Rigidbody rb;
     public enum Direction { forward, backward, left, right }
     public Direction direction;
+    public MeshRenderer md;
 
     private void Start()
     {
+        switch (gameObject.layer)
+        {
+            case 0: //default
+                md.material = MeshStore.instance.listOfMaterials[0];
+                break;
+            case 3: //orange
+                md.material = MeshStore.instance.listOfMaterials[1];
+                break;
+            case 6: //blue
+                md.material = MeshStore.instance.listOfMaterials[2];
+                break;
+        }
+
         transform.rotation = new Quaternion(0, 0, 0, 0);
         switch (direction)
         {
