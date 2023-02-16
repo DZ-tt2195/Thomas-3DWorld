@@ -37,6 +37,9 @@ public class CheckpointManager : MonoBehaviour
             lastCheckpoint = x;
             lastCheckpoint.current = true;
             this.transform.position = x.transform.parent.position;
+
+            Challenges.instance.stopwatch.Restart();
+            Challenges.instance.jumpsLeft = 1;
         }
     }
 

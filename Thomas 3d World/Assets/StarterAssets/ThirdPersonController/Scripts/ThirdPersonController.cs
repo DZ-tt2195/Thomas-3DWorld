@@ -5,7 +5,6 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 /* Note: animations are called via the controller for both the character and capsule using animator null checks
  */
@@ -186,6 +185,9 @@ namespace StarterAssets
                 GroundedCheck();
                 Move();
                 Restart();
+
+                if (Challenges.instance.timed && Challenges.instance.stopwatch.Elapsed.Seconds >= 20)
+                    StartCoroutine(Died());
             }
         }
 
@@ -194,16 +196,26 @@ namespace StarterAssets
             CameraRotation();
         }
 
-        IEnumerator Died()
+        public IEnumerator Died()
         {
-            Debug.Log("died");
-            dead = true;
-            yield return new WaitForSeconds(0.2f);
-            SetToColor(0);
+            Challenges.instance.stopwatch.Restart();
+            Challenges.instance.jumpsLeft = 1;
 
-            this.gameObject.layer = 7;
-            UIManager.instance.deaths++;
-            dead = false;
+            if (Challenges.instance.oneLife)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
+            else
+            {
+                Debug.Log("died");
+                dead = true;
+                yield return new WaitForSeconds(0.2f);
+                SetToColor(0);
+
+                this.gameObject.layer = 7;
+                UIManager.instance.deaths++;
+                dead = false;
+            }
         }
 
         public void OnTriggerEnter(Collider other)
