@@ -5,6 +5,10 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
+using TMPro;
+using System;
+using System.Diagnostics;
 
 /* Note: animations are called via the controller for both the character and capsule using animator null checks
  */
@@ -19,7 +23,6 @@ namespace StarterAssets
     {
         public List<GameObject> renderers = new List<GameObject>();
 
-        public static ThirdPersonController instance;
         [Header("Player")]
         [Tooltip("Move speed of the character in m/s")]
         public float MoveSpeed = 2.0f;
@@ -129,18 +132,20 @@ namespace StarterAssets
         }
 
         bool dead = false;
+        Trapdoor[] allTraps;
 
         private void Awake()
         {
-            instance = this;
             // get a reference to our main camera
             if (_mainCamera == null)
             {
                 _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
             }
+
+            allTraps = FindObjectsOfType(typeof(Trapdoor)) as Trapdoor[];
         }
 
-        void SetToColor(int n)
+        public void SetToColor(int n)
         {
             for (int i = 0; i<renderers.Count; i++)
             {
@@ -207,14 +212,16 @@ namespace StarterAssets
             }
             else
             {
-                Debug.Log("died");
                 dead = true;
                 yield return new WaitForSeconds(0.2f);
-                SetToColor(0);
 
+                SetToColor(0);
                 this.gameObject.layer = 7;
                 UIManager.instance.deaths++;
                 dead = false;
+
+                for (int i = 0; i < allTraps.Length; i++)
+                    allTraps[i].Reset();
             }
         }
 
@@ -223,6 +230,13 @@ namespace StarterAssets
             if (other.CompareTag("Rock"))
             {
                 StartCoroutine(Died());
+            }
+
+            else if (other.CompareTag("Checkpoint"))
+            {
+                CheckpointManager.instance.NewCheckpoint(other.gameObject);
+                SetToColor(0);
+                this.gameObject.layer = 7;
             }
 
             else if (other.CompareTag("Jewel"))
@@ -471,7 +485,7 @@ namespace StarterAssets
             {
                 if (FootstepAudioClips.Length > 0)
                 {
-                    var index = Random.Range(0, FootstepAudioClips.Length);
+                    var index = UnityEngine.Random.Range(0, FootstepAudioClips.Length);
                     AudioSource.PlayClipAtPoint(FootstepAudioClips[index], transform.TransformPoint(_controller.center), FootstepAudioVolume);
                 }
             }

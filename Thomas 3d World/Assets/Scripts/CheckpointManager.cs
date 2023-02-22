@@ -10,7 +10,7 @@ public class CheckpointManager : MonoBehaviour
 {
     public static CheckpointManager instance = null;
     public bool checkpointSet;
-    public Checkpoint lastCheckpoint;
+    public GameObject lastCheckpoint;
     float rotate = 0;
 
     void Awake()
@@ -22,20 +22,18 @@ public class CheckpointManager : MonoBehaviour
 
     }
 
-    public void NewCheckpoint(Checkpoint x)
+    public void NewCheckpoint(GameObject x)
     {
         if (lastCheckpoint != x)
         {
             if (lastCheckpoint != null)
             {
-                lastCheckpoint.current = false;
                 lastCheckpoint.transform.rotation = new Quaternion(0, 0, 0, 0);
             }
 
             rotate = 0;
             checkpointSet = true;
             lastCheckpoint = x;
-            lastCheckpoint.current = true;
             this.transform.position = x.transform.parent.position;
 
             Challenges.instance.stopwatch.Restart();

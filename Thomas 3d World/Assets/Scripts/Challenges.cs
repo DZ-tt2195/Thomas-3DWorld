@@ -44,12 +44,21 @@ public class Challenges : MonoBehaviour
             challengeText = GameObject.Find("Challenge UI").GetComponent<TMP_Text>();
 
         challengeText.text = "";
+        challengeText.transform.parent.gameObject.SetActive(false);
+
         if (oneJump)
+        {
+            challengeText.transform.parent.gameObject.SetActive(true);
             challengeText.text += $"One jump per checkpoint: {jumpsLeft} left\n";
+        }
         if (oneLife)
+        {
+            challengeText.transform.parent.gameObject.SetActive(true);
             challengeText.text += $"Dying restarts the game\n";
+        }
         if (timed)
         {
+            challengeText.transform.parent.gameObject.SetActive(true);
             challengeText.text += $"Time for this checkpoint: {20 - stopwatch.Elapsed.Seconds}\n";
         }
     }
