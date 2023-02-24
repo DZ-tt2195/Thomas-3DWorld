@@ -7,37 +7,45 @@ public class Rock : MonoBehaviour
     public Rigidbody rb;
     public enum Direction { forward, backward, left, right }
     public Direction direction;
-    public MeshRenderer md;
+    public MeshRenderer md1;
+    public MeshRenderer md2;
 
-    private void Start()
+    public void RockSetup(Direction dir, string layer)
     {
+        transform.rotation = new Quaternion(0, 0, 0, 0);
+        this.gameObject.layer = LayerMask.NameToLayer(layer);
+        this.gameObject.transform.parent.gameObject.layer = LayerMask.NameToLayer(layer);
+        direction = dir;
+
         switch (gameObject.layer)
         {
             case 0: //default
-                md.material = MeshStore.instance.listOfMaterials[0];
+                md1.material = MeshStore.instance.listOfMaterials[0];
+                md2.material = MeshStore.instance.listOfMaterials[0];
                 break;
             case 3: //orange
-                md.material = MeshStore.instance.listOfMaterials[1];
+                md1.material = MeshStore.instance.listOfMaterials[1];
+                md2.material = MeshStore.instance.listOfMaterials[1];
                 break;
             case 6: //blue
-                md.material = MeshStore.instance.listOfMaterials[2];
+                md1.material = MeshStore.instance.listOfMaterials[2];
+                md2.material = MeshStore.instance.listOfMaterials[2];
                 break;
         }
 
-        transform.rotation = new Quaternion(0, 0, 0, 0);
         switch (direction)
         {
             case Direction.right:
-                rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezePositionY;
+                rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY;
                 break;
             case Direction.left:
-                rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezePositionY;
+                rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY;
                 break;
             case Direction.forward:
-                rb.constraints = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezePositionY;
+                rb.constraints = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY;
                 break;
             case Direction.backward:
-                rb.constraints = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezePositionY;
+                rb.constraints = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY;
                 break;
         }
     }
@@ -45,7 +53,7 @@ public class Rock : MonoBehaviour
     public void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Rock"))
-            Destroy(this.gameObject);
+            Destroy(this.gameObject.transform.parent.gameObject);
     }
 
     // Update is called once per frame

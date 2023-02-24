@@ -13,11 +13,6 @@ public class CameraManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(this.gameObject);
-        }
-        else
-        {
-            Destroy(this.gameObject);
         }
     }
 
@@ -25,7 +20,7 @@ public class CameraManager : MonoBehaviour
     {
         if (newCam != null)
         {
-            newCam.Priority = currentCamera.Priority;
+            newCam.Priority = currentCamera.Priority+1;
             currentCamera = newCam;
         }
     }
