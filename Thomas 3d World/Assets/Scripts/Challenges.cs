@@ -59,7 +59,7 @@ public class Challenges : MonoBehaviour
         if (timed)
         {
             challengeText.transform.parent.gameObject.SetActive(true);
-            challengeText.text += $"Time for this checkpoint: {20 - stopwatch.Elapsed.Seconds}\n";
+            challengeText.text += $"Time for this checkpoint: {15 - stopwatch.Elapsed.Seconds}\n";
         }
     }
 }

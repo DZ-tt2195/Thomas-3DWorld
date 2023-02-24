@@ -66,7 +66,7 @@ namespace StarterAssets
         public float GroundedRadius = 0.28f;
 
         [Tooltip("What layers the character uses as ground")]
-        public LayerMask GroundLayers;
+        LayerMask[] GroundLayers = new LayerMask[3];
 
         [Header("Cinemachine")]
         [Tooltip("The follow target set in the Cinemachine Virtual Camera that the camera will follow")]
@@ -143,6 +143,9 @@ namespace StarterAssets
             }
 
             allTraps = FindObjectsOfType(typeof(Trapdoor)) as Trapdoor[];
+            GroundLayers[0] = LayerMask.GetMask("Default");
+            GroundLayers[1] = LayerMask.GetMask("Orange");
+            GroundLayers[2] = LayerMask.GetMask("Blue");
         }
 
         public void SetToColor(int n)
@@ -167,7 +170,6 @@ namespace StarterAssets
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
             _playerInput = GetComponent<PlayerInput>();
 #else
-			Debug.LogError( "Starter Assets package is missing dependencies. Please use Tools/Starter Assets/Reinstall Dependencies to fix it");
 #endif
             AssignAnimationIDs();
 
@@ -191,7 +193,7 @@ namespace StarterAssets
                 Move();
                 Restart();
 
-                if (Challenges.instance.timed && Challenges.instance.stopwatch.Elapsed.Seconds >= 20)
+                if (Challenges.instance.timed && Challenges.instance.stopwatch.Elapsed.Seconds >= 15)
                     StartCoroutine(Died());
             }
         }
@@ -251,12 +253,15 @@ namespace StarterAssets
                 switch (gameObject.layer)
                 {
                     case 0:
+                        this.gameObject.layer = 7;
                         SetToColor(0);
                         break;
                     case 3: //orange
+                        this.gameObject.layer = 8;
                         SetToColor(1);
                         break;
                     case 6: //blue
+                        this.gameObject.layer = 9;
                         SetToColor(2);
                         break;
                 }
@@ -277,8 +282,17 @@ namespace StarterAssets
             // set sphere position, with offset
             Vector3 spherePosition = new Vector3(transform.position.x, transform.position.y - GroundedOffset,
                 transform.position.z);
-            Grounded = Physics.CheckSphere(spherePosition, GroundedRadius, GroundLayers,
-                QueryTriggerInteraction.Ignore);
+
+            Grounded = false;
+            for (int i = 0; i<GroundLayers.Length; i++)
+            {
+                if (Physics.CheckSphere(spherePosition, GroundedRadius, GroundLayers[i],
+                QueryTriggerInteraction.Ignore))
+                {
+                    Grounded = true;
+                    break;
+                }
+            }
 
             // update animator if using character
             if (_hasAnimator)
@@ -412,6 +426,8 @@ namespace StarterAssets
                 {
                     // the square root of H * -2 * G = how much velocity needed to reach desired height
                     _verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
+                    Grounded = false;
+                    _input.jump = false;
 
                     // update animator if using character
                     if (_hasAnimator)

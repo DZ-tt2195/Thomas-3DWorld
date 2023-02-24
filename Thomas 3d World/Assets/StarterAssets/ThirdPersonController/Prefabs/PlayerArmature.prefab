@@ -1136,16 +1136,13 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 274649b0e221539409070ebf6c18918b, type: 3}
   - {fileID: 8300000, guid: a3194b8bbc96ef84fab1f98f4b7dae3e, type: 3}
   FootstepAudioVolume: 0.3
-  JumpHeight: 2
-  Gravity: -15
+  JumpHeight: 2.5
+  Gravity: -25
   JumpTimeout: 0
   FallTimeout: 0.15
   Grounded: 1
   GroundedOffset: -0.14
   GroundedRadius: 0.28
-  GroundLayers:
-    serializedVersion: 2
-    m_Bits: 513
   CinemachineCameraTarget: {fileID: 8338988566280778634}
   TopClamp: 70
   BottomClamp: -30

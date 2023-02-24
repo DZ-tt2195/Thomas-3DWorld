@@ -9,6 +9,7 @@ TagManager:
   - Checkpoint
   - Jewel
   - Ground
+  - Color Capsule
   layers:
   - Default
   - TransparentFX
@@ -18,8 +19,8 @@ TagManager:
   - UI
   - Blue
   - Player
-  - 
-  - 
+  - Player Orange
+  - Player Blue
   - 
   - 
   - 
