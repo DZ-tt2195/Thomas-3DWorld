@@ -236,7 +236,7 @@ namespace StarterAssets
 
             else if (other.CompareTag("Checkpoint"))
             {
-                CheckpointManager.instance.NewCheckpoint(other.gameObject);
+                CheckpointManager.instance.NewCheckpoint(other.gameObject.GetComponent<ChangeCamera>());
                 SetToColor(0);
                 this.gameObject.layer = 7;
             }

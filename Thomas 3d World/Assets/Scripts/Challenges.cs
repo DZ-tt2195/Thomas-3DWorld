@@ -12,7 +12,7 @@ public class Challenges : MonoBehaviour
     TMP_Text challengeText;
 
     public bool oneJump;
-    public int jumpsLeft = 1;
+    [HideInInspector]public int jumpsLeft = 1;
 
     public bool oneLife;
 

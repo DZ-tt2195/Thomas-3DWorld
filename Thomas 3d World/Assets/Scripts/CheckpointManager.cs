@@ -10,7 +10,7 @@ public class CheckpointManager : MonoBehaviour
 {
     public static CheckpointManager instance = null;
     public bool checkpointSet;
-    public GameObject lastCheckpoint;
+    public ChangeCamera lastCheckpoint;
     float rotate = 0;
 
     void Awake()
@@ -22,7 +22,7 @@ public class CheckpointManager : MonoBehaviour
 
     }
 
-    public void NewCheckpoint(GameObject x)
+    public void NewCheckpoint(ChangeCamera x)
     {
         if (lastCheckpoint != x)
         {
