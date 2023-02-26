@@ -87,7 +87,7 @@ namespace StarterAssets
 
 		public void OnHardRestart(InputValue value)
 		{
-			SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+			SceneManager.LoadScene(0);
 		}
 
 #endif

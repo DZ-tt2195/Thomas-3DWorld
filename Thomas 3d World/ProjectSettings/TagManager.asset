@@ -10,6 +10,7 @@ TagManager:
   - Jewel
   - Ground
   - Color Capsule
+  - Camera Change
   layers:
   - Default
   - TransparentFX

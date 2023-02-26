@@ -17,14 +17,14 @@ public class Trapdoor : MonoBehaviour
     {
         myState = State.waiting;
         originalPos = transform.position;
-        direction = new Vector3(direction.x / 100f, direction.y / 100f, direction.z / 100f);
+        //direction = new Vector3(direction.x / 100f, direction.y / 100f, direction.z / 100f);
     }
 
     public void Reset()
     {
         transform.position = originalPos;
         myState = State.waiting;
-        StopCoroutine(Stop());
+        StopCoroutine(Delete());
     }
 
     public void OnTriggerEnter(Collider other)
@@ -37,18 +37,14 @@ public class Trapdoor : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         myState = State.move;
-        StartCoroutine(Stop());
-    }
-
-    IEnumerator Stop()
-    {
         yield return new WaitForSeconds(stopMoving);
-        myState = State.done;
+        if (myState == State.move)
+            myState = State.done;
     }
 
     private void Update()
     {
         if (myState == State.move)
-            transform.Translate((direction), Space.Self);
+            transform.Translate((direction) * Time.deltaTime, Space.Self);
     }
 }

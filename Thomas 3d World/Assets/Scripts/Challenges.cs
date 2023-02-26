@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine.UI;
 using System;
 using System.Diagnostics;
+using UnityEngine.SceneManagement;
 
 public class Challenges : MonoBehaviour
 {
@@ -14,10 +15,10 @@ public class Challenges : MonoBehaviour
     public bool oneJump;
     [HideInInspector]public int jumpsLeft = 1;
 
-    public bool oneLife;
-
     public bool timed;
     public Stopwatch stopwatch;
+
+    public bool oneLife;
 
     private void Awake()
     {
@@ -40,26 +41,29 @@ public class Challenges : MonoBehaviour
 
     private void Update()
     {
-        if (challengeText == null)
-            challengeText = GameObject.Find("Challenge UI").GetComponent<TMP_Text>();
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            if (challengeText == null)
+                challengeText = GameObject.Find("Challenge UI").GetComponent<TMP_Text>();
 
-        challengeText.text = "";
-        challengeText.transform.parent.gameObject.SetActive(false);
+            challengeText.text = "";
+            challengeText.transform.parent.gameObject.SetActive(false);
 
-        if (oneJump)
-        {
-            challengeText.transform.parent.gameObject.SetActive(true);
-            challengeText.text += $"One jump per checkpoint: {jumpsLeft} left\n";
-        }
-        if (oneLife)
-        {
-            challengeText.transform.parent.gameObject.SetActive(true);
-            challengeText.text += $"Dying restarts the game\n";
-        }
-        if (timed)
-        {
-            challengeText.transform.parent.gameObject.SetActive(true);
-            challengeText.text += $"Time for this checkpoint: {15 - stopwatch.Elapsed.Seconds}\n";
+            if (oneJump)
+            {
+                challengeText.transform.parent.gameObject.SetActive(true);
+                challengeText.text += $"One jump per checkpoint: {jumpsLeft} left\n";
+            }
+            if (oneLife)
+            {
+                challengeText.transform.parent.gameObject.SetActive(true);
+                challengeText.text += $"Dying restarts the game\n";
+            }
+            if (timed)
+            {
+                challengeText.transform.parent.gameObject.SetActive(true);
+                challengeText.text += $"Time for this checkpoint: {15 - stopwatch.Elapsed.Seconds}\n";
+            }
         }
     }
 }
