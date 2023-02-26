@@ -4,36 +4,51 @@ using UnityEngine;
 
 public class Trapdoor : MonoBehaviour
 {
-    bool triggered = false;
-    public float timer;
+    enum State { waiting, move, done };
+    State myState;
+
+    public float delay;
+    public float stopMoving;
+
     Vector3 originalPos;
+    public Vector3 direction;
 
     private void Start()
     {
+        myState = State.waiting;
         originalPos = transform.position;
+        direction = new Vector3(direction.x / 100f, direction.y / 100f, direction.z / 100f);
     }
 
     public void Reset()
     {
         transform.position = originalPos;
-        triggered = false;
+        myState = State.waiting;
+        StopCoroutine(Stop());
     }
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (myState == State.waiting && other.CompareTag("Player"))
             StartCoroutine(Delete());
     }
 
     IEnumerator Delete()
     {
-        yield return new WaitForSeconds(timer);
-        triggered = true;
+        yield return new WaitForSeconds(delay);
+        myState = State.move;
+        StartCoroutine(Stop());
+    }
+
+    IEnumerator Stop()
+    {
+        yield return new WaitForSeconds(stopMoving);
+        myState = State.done;
     }
 
     private void Update()
     {
-        if (triggered)
-            transform.Translate(new Vector3(0, -0.02f, 0), Space.Self);
+        if (myState == State.move)
+            transform.Translate((direction), Space.Self);
     }
 }
