@@ -136,6 +136,14 @@ namespace StarterAssets
 
         private void Awake()
         {
+            _hasAnimator = TryGetComponent(out _animator);
+            _controller = GetComponent<CharacterController>();
+            _input = GetComponent<StarterAssetsInputs>();
+#if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
+            _playerInput = GetComponent<PlayerInput>();
+#else
+#endif
+
             // get a reference to our main camera
             if (_mainCamera == null)
             {
@@ -161,16 +169,11 @@ namespace StarterAssets
 
         private void Start()
         {
+            if (Challenges.instance == null)
+                SceneManager.LoadScene(0);
+
             SetToColor(0);
             _cinemachineTargetYaw = CinemachineCameraTarget.transform.rotation.eulerAngles.y;
-
-            _hasAnimator = TryGetComponent(out _animator);
-            _controller = GetComponent<CharacterController>();
-            _input = GetComponent<StarterAssetsInputs>();
-#if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
-            _playerInput = GetComponent<PlayerInput>();
-#else
-#endif
             AssignAnimationIDs();
 
             // reset our timeouts on start

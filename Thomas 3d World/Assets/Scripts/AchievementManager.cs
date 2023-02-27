@@ -6,6 +6,9 @@ public class AchievementManager : MonoBehaviour
 {
     public static AchievementManager instance;
 
+    public bool[] completed = new bool[10];
+
+    /*
     [Tooltip("Beat the game")]
     public bool beatGame;
 
@@ -35,7 +38,7 @@ public class AchievementManager : MonoBehaviour
 
     [Tooltip("Collect all the jewels with all challenges on")]
     public bool impossiblePlusJewels;
-
+    */
 
     private void Awake()
     {
