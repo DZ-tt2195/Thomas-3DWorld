@@ -1139,7 +1139,7 @@ MonoBehaviour:
   JumpHeight: 2.5
   Gravity: -25
   JumpTimeout: 0
-  FallTimeout: 0.15
+  FallTimeout: 0
   Grounded: 1
   GroundedOffset: -0.14
   GroundedRadius: 0.28
