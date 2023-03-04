@@ -12,6 +12,7 @@ public class CheckpointManager : MonoBehaviour
     public bool checkpointSet;
     public GameObject lastCheckpoint;
     float rotate = 0;
+    [HideInInspector] public GameObject[] allCheckpoints;
 
     void Awake()
     {
@@ -19,7 +20,7 @@ public class CheckpointManager : MonoBehaviour
         {
             instance = this;
         }
-
+        allCheckpoints = GameObject.FindGameObjectsWithTag("Checkpoint");
     }
 
     public void NewCheckpoint(GameObject x)
@@ -34,7 +35,7 @@ public class CheckpointManager : MonoBehaviour
             rotate = 0;
             checkpointSet = true;
             lastCheckpoint = x;
-            this.transform.position = x.transform.parent.position;
+            this.transform.position = new Vector3(x.transform.position.x, x.transform.position.y, x.transform.position.z);
 
             Challenges.instance.stopwatch.Restart();
             Challenges.instance.jumpsLeft = 1;

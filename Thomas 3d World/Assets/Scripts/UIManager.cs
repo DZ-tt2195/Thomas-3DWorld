@@ -13,7 +13,9 @@ public class UIManager : MonoBehaviour
     public TMP_Text UItext;
     public int deaths = 0;
     public int collectibles = 0;
-    Collectible[] allCollectibles;
+
+    GameObject[] allCollectibles;
+    float rotate = 0;
     Stopwatch stopwatch;
 
     int lastframe = 0;
@@ -27,7 +29,7 @@ public class UIManager : MonoBehaviour
             instance = this;
         }
 
-        allCollectibles = FindObjectsOfType(typeof(Collectible)) as Collectible[];
+        allCollectibles = GameObject.FindGameObjectsWithTag("Jewel");
     }
 
     private void Start()
@@ -42,6 +44,12 @@ public class UIManager : MonoBehaviour
         $"\nDeaths: {deaths}" +
         $"\nJewels: {collectibles} / {allCollectibles.Length}" +
         $"\nFPS: {CalculateFrames()}";
+
+        rotate += 0.5f;
+        for (int i = 0; i < allCollectibles.Length; i++)
+        {
+            allCollectibles[i].gameObject.transform.localEulerAngles = new Vector3(90, 0, rotate);
+        }
     }
 
     string ConvertTimeToString(TimeSpan x)

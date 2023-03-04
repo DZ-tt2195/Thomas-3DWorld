@@ -19,6 +19,7 @@ public class Challenges : MonoBehaviour
     public Stopwatch stopwatch;
 
     public bool oneLife;
+    public int checkpointLoaded;
 
     private void Awake()
     {
@@ -49,20 +50,31 @@ public class Challenges : MonoBehaviour
             challengeText.text = "";
             challengeText.transform.parent.gameObject.SetActive(false);
 
+            if (checkpointLoaded > 0)
+            {
+                challengeText.transform.parent.gameObject.SetActive(true);
+                challengeText.text += $"-Loaded from checkpoint {checkpointLoaded}(Achievements disabled)\n";
+            }
+
             if (oneJump)
             {
                 challengeText.transform.parent.gameObject.SetActive(true);
-                challengeText.text += $"One jump per checkpoint: {jumpsLeft} left\n";
+                challengeText.text += $"-One Jump Challenge\n";
+                if (jumpsLeft == 1)
+                    challengeText.text += $"(1 jump left)";
+                else
+                    challengeText.text += $"(0 jumps left)";
             }
             if (oneLife)
             {
                 challengeText.transform.parent.gameObject.SetActive(true);
-                challengeText.text += $"Dying restarts the game\n";
+                challengeText.text += $"-One Life Challenge\n";
             }
             if (timed)
             {
                 challengeText.transform.parent.gameObject.SetActive(true);
-                challengeText.text += $"Time for this checkpoint: {15 - stopwatch.Elapsed.Seconds}\n";
+                challengeText.text += $"-15sec Timer Challenge\n" +
+                    $"({15 - stopwatch.Elapsed.Seconds} seconds left)\n";
             }
         }
     }

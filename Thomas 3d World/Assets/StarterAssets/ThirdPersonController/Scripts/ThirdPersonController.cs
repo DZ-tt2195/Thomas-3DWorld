@@ -179,6 +179,13 @@ namespace StarterAssets
             // reset our timeouts on start
             _jumpTimeoutDelta = JumpTimeout;
             _fallTimeoutDelta = FallTimeout;
+
+            if (Challenges.instance.checkpointLoaded > 0)
+            {
+                GameObject x = CheckpointManager.instance.allCheckpoints[Challenges.instance.checkpointLoaded - 1];
+                CheckpointManager.instance.transform.position = new Vector3(x.transform.position.x, x.transform.position.y, x.transform.position.z);
+                StartCoroutine(Died(false));
+            }
         }
 
         private void Update()
@@ -197,7 +204,7 @@ namespace StarterAssets
                 Restart();
 
                 if (Challenges.instance.timed && Challenges.instance.stopwatch.Elapsed.Seconds >= 15)
-                    StartCoroutine(Died());
+                    StartCoroutine(Died(true));
             }
         }
 
@@ -206,35 +213,33 @@ namespace StarterAssets
             CameraRotation();
         }
 
-        public IEnumerator Died()
+        public IEnumerator Died(bool count)
         {
             Challenges.instance.stopwatch.Restart();
             Challenges.instance.jumpsLeft = 1;
 
-            if (Challenges.instance.oneLife)
+            if (count)
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            }
-            else
-            {
-                dead = true;
-                yield return new WaitForSeconds(0.2f);
-
-                SetToColor(0);
-                this.gameObject.layer = 7;
                 UIManager.instance.deaths++;
-                dead = false;
-
-                for (int i = 0; i < allTraps.Length; i++)
-                    allTraps[i].Reset();
+                if (Challenges.instance.oneLife)
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
+            dead = true;
+            yield return new WaitForSeconds(0.2f);
+
+            SetToColor(0);
+            this.gameObject.layer = 7;
+            dead = false;
+
+            for (int i = 0; i < allTraps.Length; i++)
+                allTraps[i].Reset();
         }
 
         public void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("Rock") || other.CompareTag("Spike"))
             {
-                StartCoroutine(Died());
+                StartCoroutine(Died(true));
             }
 
             else if (other.CompareTag("Checkpoint"))
@@ -251,7 +256,7 @@ namespace StarterAssets
 
             else if (other.CompareTag("Jewel"))
             {
-                Destroy(other.gameObject);
+                other.gameObject.SetActive(false);
                 UIManager.instance.collectibles++;
             }
 
@@ -335,7 +340,7 @@ namespace StarterAssets
             if (_input.restart)
             {
                 _input.restart = false;
-                StartCoroutine(Died());
+                StartCoroutine(Died(true));
             }
         }
 

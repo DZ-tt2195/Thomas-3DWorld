@@ -3,21 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class MainMenu : MonoBehaviour
 {
     public List<Toggle> challenges = new List<Toggle>();
     public List<Toggle> completed = new List<Toggle>();
-    Button playGame;
-    Button achievements;
-    GameObject bigImage;
+    public GameObject bigImage;
 
-    private void Awake()
-    {
-        playGame = GameObject.Find("Play Game").GetComponent<Button>();
-        achievements = GameObject.Find("Achievements").GetComponent<Button>();
-        bigImage = GameObject.Find("Big Image").gameObject; 
-    }
+    public Button playGame;
+    public Button achievements;
+    public TMP_Dropdown dropdown;
 
     private void Start()
     {
@@ -38,7 +34,7 @@ public class MainMenu : MonoBehaviour
         Challenges.instance.oneJump = challenges[0].isOn;
         Challenges.instance.timed = challenges[1].isOn;
         Challenges.instance.oneLife = challenges[2].isOn;
-
+        Challenges.instance.checkpointLoaded = dropdown.value;
         SceneManager.LoadScene(1);
     }
 }
