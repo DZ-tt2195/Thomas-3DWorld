@@ -232,7 +232,7 @@ namespace StarterAssets
 
         public void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("Rock"))
+            if (other.CompareTag("Rock") || other.CompareTag("Spike"))
             {
                 StartCoroutine(Died());
             }

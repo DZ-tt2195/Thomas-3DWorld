@@ -9,9 +9,11 @@ public class Rock : MonoBehaviour
     public Direction direction;
     public MeshRenderer md1;
     public MeshRenderer md2;
+    float multiplier = 1;
 
-    public void RockSetup(Direction dir, string layer)
+    public void RockSetup(Direction dir, string layer, float multiplier)
     {
+        this.multiplier = multiplier;
         transform.rotation = new Quaternion(0, 0, 0, 0);
         this.gameObject.layer = LayerMask.NameToLayer(layer);
         this.gameObject.transform.parent.gameObject.layer = LayerMask.NameToLayer(layer);
@@ -62,16 +64,16 @@ public class Rock : MonoBehaviour
         switch (direction)
         {
             case Direction.right:
-              rb.AddForce(Vector3.right);
+              rb.AddForce(Vector3.right * this.multiplier);
                 break;
             case Direction.left:
-                rb.AddForce(Vector3.left);
+                rb.AddForce(Vector3.left * this.multiplier);
                 break;
             case Direction.forward:
-                rb.AddForce(Vector3.forward);
+                rb.AddForce(Vector3.forward * this.multiplier);
                 break;
             case Direction.backward:
-                rb.AddForce(Vector3.back);
+                rb.AddForce(Vector3.back * this.multiplier);
                 break;
         }
     }

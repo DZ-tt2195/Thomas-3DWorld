@@ -12,11 +12,10 @@ GameObject:
   - component: {fileID: 3665934620218253624}
   - component: {fileID: 6459724157590244951}
   - component: {fileID: 4818619205544339041}
-  - component: {fileID: 6012029438335186791}
   - component: {fileID: 8082097201870236575}
   m_Layer: 6
   m_Name: Spike
-  m_TagString: Rock
+  m_TagString: Spike
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3665934620218253624
 MonoBehaviour:
@@ -546,20 +545,6 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5825749232122840085}
-  m_Mesh: {fileID: 0}
---- !u!64 &6012029438335186791
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5825749232122840085}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
   m_Mesh: {fileID: 0}
 --- !u!65 &8082097201870236575
 BoxCollider:
