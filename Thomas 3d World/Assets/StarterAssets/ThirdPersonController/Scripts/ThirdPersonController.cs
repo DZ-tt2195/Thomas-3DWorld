@@ -22,6 +22,7 @@ namespace StarterAssets
     public class ThirdPersonController : MonoBehaviour
     {
         public List<GameObject> renderers = new List<GameObject>();
+        public List<Image> UIboxes = new List<Image>();
 
         [Header("Player")]
         [Tooltip("Move speed of the character in m/s")]
@@ -164,6 +165,16 @@ namespace StarterAssets
                     renderers[i].SetActive(true);
                 else
                     renderers[i].SetActive(false);
+            }
+
+            for (int i = 0; i<UIboxes.Count; i++)
+            {
+                if (n == 0)
+                    UIboxes[i].color = Color.black;
+                else if (n == 1)
+                    UIboxes[i].color = Color.red;
+                else
+                    UIboxes[i].color = Color.blue;
             }
         }
 
