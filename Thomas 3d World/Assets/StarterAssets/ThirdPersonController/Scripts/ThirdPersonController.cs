@@ -226,6 +226,7 @@ namespace StarterAssets
                 UIManager.instance.deaths++;
                 if (Challenges.instance.oneLife)
                 {
+                    CheckpointManager.instance.NewCheckpoint(null);
                     UIManager.instance.stopwatch.Restart();
                     UIManager.instance.collectibles = 0;
                     for (int i = 0; i < UIManager.instance.allCollectibles.Length; i++)

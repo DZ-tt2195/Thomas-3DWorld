@@ -29,14 +29,14 @@ public class CheckpointManager : MonoBehaviour
         {
             if (lastCheckpoint != null)
             {
-                lastCheckpoint.transform.rotation = new Quaternion(0, 0, 0, 0);
+                lastCheckpoint.transform.parent.localEulerAngles = new Vector3(0, 0, 0);
             }
 
             rotate = 0;
             checkpointSet = true;
             lastCheckpoint = x;
 
-            if (!Challenges.instance.oneLife)
+            if (lastCheckpoint != null && !Challenges.instance.oneLife)
                 this.transform.position = new Vector3(x.transform.position.x, x.transform.position.y, x.transform.position.z);
 
             Challenges.instance.stopwatch.Restart();

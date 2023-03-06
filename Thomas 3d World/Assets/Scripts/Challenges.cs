@@ -53,7 +53,7 @@ public class Challenges : MonoBehaviour
             if (checkpointLoaded > 0)
             {
                 challengeText.transform.parent.gameObject.SetActive(true);
-                challengeText.text += $"-Loaded from checkpoint {checkpointLoaded} (Achievements disabled)\n";
+                challengeText.text += $"-Loaded from a checkpoint\n(Achievements disabled)\n";
             }
 
             if (oneJump)
