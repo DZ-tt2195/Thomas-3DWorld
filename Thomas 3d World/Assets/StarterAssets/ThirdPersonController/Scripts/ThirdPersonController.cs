@@ -180,6 +180,9 @@ namespace StarterAssets
             _jumpTimeoutDelta = JumpTimeout;
             _fallTimeoutDelta = FallTimeout;
 
+            if (Challenges.instance.timed)
+                StartCoroutine(Died(false));
+
             if (Challenges.instance.checkpointLoaded > 0)
             {
                 GameObject x = CheckpointManager.instance.allCheckpoints[Challenges.instance.checkpointLoaded - 1];
@@ -222,7 +225,13 @@ namespace StarterAssets
             {
                 UIManager.instance.deaths++;
                 if (Challenges.instance.oneLife)
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                {
+                    UIManager.instance.stopwatch.Restart();
+                    UIManager.instance.collectibles = 0;
+                    for (int i = 0; i < UIManager.instance.allCollectibles.Length; i++)
+                        UIManager.instance.allCollectibles[i].SetActive(true);
+                }
+
             }
             dead = true;
             yield return new WaitForSeconds(0.2f);
@@ -247,11 +256,6 @@ namespace StarterAssets
                 SetToColor(0);
                 this.gameObject.layer = 7;
                 CheckpointManager.instance.NewCheckpoint(other.gameObject);
-            }
-
-            else if (other.CompareTag("Camera Change"))
-            {
-                CameraManager.instance.NewCamera(other.GetComponent<ChangeCamera>().newCamera);
             }
 
             else if (other.CompareTag("Jewel"))

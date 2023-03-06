@@ -35,7 +35,9 @@ public class CheckpointManager : MonoBehaviour
             rotate = 0;
             checkpointSet = true;
             lastCheckpoint = x;
-            this.transform.position = new Vector3(x.transform.position.x, x.transform.position.y, x.transform.position.z);
+
+            if (!Challenges.instance.oneLife)
+                this.transform.position = new Vector3(x.transform.position.x, x.transform.position.y, x.transform.position.z);
 
             Challenges.instance.stopwatch.Restart();
             Challenges.instance.jumpsLeft = 1;
@@ -46,7 +48,7 @@ public class CheckpointManager : MonoBehaviour
     {
         if (lastCheckpoint != null)
         {
-            rotate += 0.5f;
+            rotate += 3f;
             lastCheckpoint.transform.parent.localEulerAngles = new Vector3(0, rotate, 0);
         }
     }

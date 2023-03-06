@@ -10,6 +10,6 @@ public class ChangeCamera : MonoBehaviour
     public void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
-            CameraManager.instance.NewCamera(newCamera);
+            CameraManager.instance.NewCamera(newCamera, this.gameObject.name);
     }
 }

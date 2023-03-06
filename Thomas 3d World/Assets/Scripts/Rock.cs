@@ -64,16 +64,16 @@ public class Rock : MonoBehaviour
         switch (direction)
         {
             case Direction.right:
-              rb.AddForce(Vector3.right * this.multiplier);
+              rb.AddForce(Vector3.right * this.multiplier * 7.5f);
                 break;
             case Direction.left:
-                rb.AddForce(Vector3.left * this.multiplier);
+                rb.AddForce(Vector3.left * this.multiplier * 7.5f);
                 break;
             case Direction.forward:
-                rb.AddForce(Vector3.forward * this.multiplier);
+                rb.AddForce(Vector3.forward * this.multiplier * 7.5f);
                 break;
             case Direction.backward:
-                rb.AddForce(Vector3.back * this.multiplier);
+                rb.AddForce(Vector3.back * this.multiplier * 7.5f);
                 break;
         }
     }
