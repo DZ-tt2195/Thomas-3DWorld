@@ -43,7 +43,7 @@ public class UIManager : MonoBehaviour
         UItext.text = $"Time: {ConvertTimeToString(stopwatch.Elapsed)}" +
         $"\nDeaths: {deaths}" +
         $"\nJewels: {collectibles} / {allCollectibles.Length}" +
-        $"\nFPS: {CalculateFrames().ToString("F1")}";
+        $"\nFPS: {CalculateFrames():F2}";
 
         rotate += 3;
         for (int i = 0; i < allCollectibles.Length; i++)

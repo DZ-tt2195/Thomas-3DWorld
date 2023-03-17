@@ -1118,6 +1118,7 @@ MonoBehaviour:
   - {fileID: 8187455079231382173}
   - {fileID: 8540134794172114314}
   - {fileID: 6096884677561288879}
+  UIboxes: []
   MoveSpeed: 15
   SprintSpeed: 15
   RotationSmoothTime: 0.12
@@ -1135,7 +1136,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 274649b0e221539409070ebf6c18918b, type: 3}
   - {fileID: 8300000, guid: a3194b8bbc96ef84fab1f98f4b7dae3e, type: 3}
   FootstepAudioVolume: 0.3
-  JumpHeight: 2.5
+  JumpHeight: 3
   Gravity: -25
   JumpTimeout: 0
   FallTimeout: 0.5
