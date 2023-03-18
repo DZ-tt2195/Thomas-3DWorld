@@ -35,6 +35,6 @@ public class MainMenu : MonoBehaviour
         Challenges.instance.timed = challenges[1].isOn;
         Challenges.instance.oneLife = challenges[2].isOn;
         Challenges.instance.checkpointLoaded = dropdown.value;
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
     }
 }

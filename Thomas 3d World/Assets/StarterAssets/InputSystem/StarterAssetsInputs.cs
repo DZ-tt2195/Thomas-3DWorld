@@ -87,7 +87,7 @@ namespace StarterAssets
 
 		public void OnHardRestart(InputValue value)
 		{
-			SceneManager.LoadScene(0);
+			SceneManager.LoadScene("Main Menu");
 		}
 
 #endif
