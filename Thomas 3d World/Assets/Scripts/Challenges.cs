@@ -42,7 +42,7 @@ public class Challenges : MonoBehaviour
 
     private void Update()
     {
-        if (SceneManager.GetActiveScene().buildIndex == 1)
+        if (SceneManager.GetActiveScene().name != "Main Menu")
         {
             if (challengeText == null)
                 challengeText = GameObject.Find("Challenge UI").GetComponent<TMP_Text>();
@@ -65,16 +65,16 @@ public class Challenges : MonoBehaviour
                 else
                     challengeText.text += $"(0 jumps left)\n";
             }
-            if (oneLife)
-            {
-                challengeText.transform.parent.gameObject.SetActive(true);
-                challengeText.text += $"-One Life Challenge\n";
-            }
             if (timed)
             {
                 challengeText.transform.parent.gameObject.SetActive(true);
                 challengeText.text += $"-15sec Timer Challenge\n" +
                     $"({15 - stopwatch.Elapsed.Seconds} seconds left)\n";
+            }
+            if (oneLife)
+            {
+                challengeText.transform.parent.gameObject.SetActive(true);
+                challengeText.text += $"-One Life Challenge\n";
             }
         }
     }

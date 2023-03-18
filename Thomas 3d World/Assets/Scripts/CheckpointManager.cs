@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 using System.Diagnostics;
+using UnityEngine.SceneManagement;
 
 public class CheckpointManager : MonoBehaviour
 {
@@ -25,6 +26,12 @@ public class CheckpointManager : MonoBehaviour
 
     public void NewCheckpoint(GameObject x)
     {
+        if (x != null && x.transform.parent.name == "END")
+        {
+            AchievementManager.instance.CheckForAchievements();
+            SceneManager.LoadScene("Main Menu");
+        }
+
         if (lastCheckpoint != x)
         {
             if (lastCheckpoint != null)

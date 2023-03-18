@@ -181,7 +181,7 @@ namespace StarterAssets
         private void Start()
         {
             if (Challenges.instance == null)
-                SceneManager.LoadScene(0);
+                SceneManager.LoadScene("Main Menu");
 
             SetToColor(0);
             _cinemachineTargetYaw = CinemachineCameraTarget.transform.rotation.eulerAngles.y;
@@ -204,6 +204,7 @@ namespace StarterAssets
 
         private void Update()
         {
+
             _hasAnimator = TryGetComponent(out _animator);
 
             if (dead)
@@ -220,6 +221,7 @@ namespace StarterAssets
                 if (Challenges.instance.timed && Challenges.instance.stopwatch.Elapsed.Seconds >= 15)
                     StartCoroutine(Died(true));
             }
+
         }
 
         private void LateUpdate()
