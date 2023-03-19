@@ -2936,7 +2936,7 @@ MonoBehaviour:
       m_Image: {fileID: 0}
     - m_Text: 4. Watch for Rolling Rocks
       m_Image: {fileID: 0}
-    - m_Text: 5. Unfinished
+    - m_Text: 5. Spinning Right Round
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:

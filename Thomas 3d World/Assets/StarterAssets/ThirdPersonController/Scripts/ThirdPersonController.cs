@@ -262,6 +262,7 @@ namespace StarterAssets
         {
             if (other.CompareTag("Rock") || other.CompareTag("Spike"))
             {
+                UnityEngine.Debug.Log(other.gameObject.name);
                 StartCoroutine(Died(true));
             }
 
