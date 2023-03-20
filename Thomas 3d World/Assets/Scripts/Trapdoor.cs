@@ -13,17 +13,19 @@ public class Trapdoor : MonoBehaviour
     Vector3 originalPos;
     public Vector3 direction;
 
+    Vector3 originalRot;
     public Vector3 rotation;
 
     private void Start()
     {
         myState = State.waiting;
         originalPos = transform.position;
+        originalRot = transform.localEulerAngles;
     }
 
     public void Reset()
     {
-        transform.localEulerAngles = new Vector3(0, 0, 0);
+        transform.localEulerAngles = originalRot;
         transform.position = originalPos;
         myState = State.waiting;
         StopCoroutine(Delete());
