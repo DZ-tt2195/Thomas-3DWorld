@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MovingSpike : MonoBehaviour
 {
-    enum Moving { direct, reverse } ;
+    enum Moving { none, direct, reverse } ;
     Moving moving;
     
     public float delay;
@@ -12,7 +12,7 @@ public class MovingSpike : MonoBehaviour
 
     private void Start()
     {
-        moving = Moving.direct;
+        moving = Moving.none;
         StartCoroutine(Movement(Moving.direct));
     }
 
@@ -38,6 +38,7 @@ public class MovingSpike : MonoBehaviour
             transform.Translate((direction) * Time.deltaTime, Space.Self);
         else if (moving == Moving.reverse)
             transform.Translate(-1 * Time.deltaTime * (direction), Space.Self);
-
+        else
+            transform.Translate(0, 0, 0);
     }
 }
