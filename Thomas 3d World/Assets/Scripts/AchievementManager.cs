@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using System.Diagnostics;
 
 public class AchievementManager : MonoBehaviour
 {
     public static AchievementManager instance;
-    public bool[] completed = new bool[10];
+    public bool[] completed = new bool[11];
 
     /*
     [Tooltip("Beat the game")]
@@ -37,7 +39,10 @@ public class AchievementManager : MonoBehaviour
 
     [Tooltip("Collect all the jewels with all challenges on")]
     public bool impossiblePlusJewels;
-    */
+ 
+    [Tooltip("Beat the game in under 30 seconds")]
+    public bool impossiblePlusJewels;
+*/
 
     private void Awake()
     {
@@ -57,7 +62,7 @@ public class AchievementManager : MonoBehaviour
         return UIManager.instance.collectibles == UIManager.instance.allCollectibles.Length;
     }
 
-    public void CheckForAchievements()
+    public void CheckForAchievements(TimeSpan y)
     {
         if (Challenges.instance.checkpointLoaded == 0)
         {
@@ -92,6 +97,10 @@ public class AchievementManager : MonoBehaviour
                 if (AllCollectibles())
                     completed[9] = true;
             }
+            UnityEngine.Debug.Log($"{y.Minutes}:{y.Seconds}");
+
+            if (y.Minutes == 0 && y.Seconds < 40)
+                completed[10] = true;
         }
     }
 }
