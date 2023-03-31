@@ -13,7 +13,7 @@ public class CheckpointManager : MonoBehaviour
     public bool checkpointSet;
     public GameObject lastCheckpoint;
     float rotate = 0;
-    [HideInInspector] public GameObject[] allCheckpoints;
+    public List<GameObject> allCheckpoints = new List<GameObject>();
 
     void Awake()
     {
@@ -21,7 +21,6 @@ public class CheckpointManager : MonoBehaviour
         {
             instance = this;
         }
-        allCheckpoints = GameObject.FindGameObjectsWithTag("Checkpoint");
     }
 
     public void NewCheckpoint(GameObject x)
