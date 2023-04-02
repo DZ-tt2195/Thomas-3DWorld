@@ -45,10 +45,11 @@ public class UIManager : MonoBehaviour
         $"\nJewels: {collectibles} / {allCollectibles.Length}" +
         $"\nFPS: {CalculateFrames():F2}";
 
-        rotate += 3;
+        rotate += (UnityEngine.Random.Range(0, 1) == 0) ? 5 : -5;
+
         for (int i = 0; i < allCollectibles.Length; i++)
         {
-            allCollectibles[i].gameObject.transform.localEulerAngles = new Vector3(90, 0, rotate);
+            allCollectibles[i].gameObject.transform.localEulerAngles = new Vector3(rotate, rotate, rotate);
         }
     }
 
