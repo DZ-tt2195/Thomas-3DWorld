@@ -55,7 +55,10 @@ public class Rock : MonoBehaviour
     public void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Rock"))
+        {
+            Debug.Log(other.gameObject.name);
             Destroy(this.gameObject.transform.parent.gameObject);
+        }
     }
 
     // Update is called once per frame
