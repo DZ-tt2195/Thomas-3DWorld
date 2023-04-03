@@ -73,4 +73,12 @@ public class MainMenu : MonoBehaviour
         Challenges.instance.checkpointLoaded = dropdown.value;
         SceneManager.LoadScene(0);
     }
+
+    public void ResetAchievements()
+    {
+        CloseMenus();
+        for (int i = 0; i < AchievementManager.instance.completed.Length; i++)
+            AchievementManager.instance.completed[i] = false;
+        AchievementMenu();
+    }
 }
