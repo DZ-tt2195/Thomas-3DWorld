@@ -6,7 +6,7 @@ public class RockGenerator : MonoBehaviour
 {
     public GameObject rockclone;
     public Rock.Direction rockDirection;
-    public enum RockLayer { Default, Orange, Blue };
+    public enum RockLayer { Default, Blue, Yellow };
     public RockLayer spawnLayer;
     public float rockScale;
     public float delay;

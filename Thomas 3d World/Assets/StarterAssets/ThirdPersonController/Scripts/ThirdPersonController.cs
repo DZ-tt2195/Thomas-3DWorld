@@ -134,6 +134,7 @@ namespace StarterAssets
 
         bool dead = false;
         Trapdoor[] allTraps;
+        MovingSpike[] allMovers;
 
         private void Awake()
         {
@@ -152,9 +153,10 @@ namespace StarterAssets
             }
 
             allTraps = FindObjectsOfType(typeof(Trapdoor)) as Trapdoor[];
+            allMovers = FindObjectsOfType(typeof(MovingSpike)) as MovingSpike[];
             GroundLayers[0] = LayerMask.GetMask("Default");
-            GroundLayers[1] = LayerMask.GetMask("Orange");
-            GroundLayers[2] = LayerMask.GetMask("Blue");
+            GroundLayers[1] = LayerMask.GetMask("Blue");
+            GroundLayers[2] = LayerMask.GetMask("Yellow");
         }
 
         public void SetToColor(int n)
@@ -169,12 +171,14 @@ namespace StarterAssets
 
             for (int i = 0; i<UIboxes.Count; i++)
             {
+                /*
                 if (n == 0)
                     UIboxes[i].color = Color.black;
                 else if (n == 1)
-                    UIboxes[i].color = Color.red;
+                    UIboxes[i].color = new Color(0, 0, 200);
                 else
-                    UIboxes[i].color = Color.blue;
+                    UIboxes[i].color = new Color(0, 200, 0);
+                */
             }
         }
 
@@ -242,6 +246,7 @@ namespace StarterAssets
                     CheckpointManager.instance.NewCheckpoint(null);
                     UIManager.instance.stopwatch.Restart();
                     UIManager.instance.collectibles = 0;
+
                     for (int i = 0; i < UIManager.instance.allCollectibles.Length; i++)
                         UIManager.instance.allCollectibles[i].SetActive(true);
                 }
@@ -256,6 +261,8 @@ namespace StarterAssets
 
             for (int i = 0; i < allTraps.Length; i++)
                 allTraps[i].Reset();
+            for (int i = 0; i < allMovers.Length; i++)
+                allMovers[i].Reset();
         }
 
         public void OnTriggerEnter(Collider other)
@@ -288,11 +295,11 @@ namespace StarterAssets
                         this.gameObject.layer = 7;
                         SetToColor(0);
                         break;
-                    case 3: //orange
+                    case 3: //blue
                         this.gameObject.layer = 8;
                         SetToColor(1);
                         break;
-                    case 6: //blue
+                    case 6: //yellow
                         this.gameObject.layer = 9;
                         SetToColor(2);
                         break;

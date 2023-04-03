@@ -18,16 +18,14 @@ public class ColorCapsule : MonoBehaviour
                 break;
             case 3: //orange
                 md.material = MeshStore.instance.listOfMaterials[1];
-                light.color = Color.red;
+                light.color = Color.blue;
                 light.intensity = 200;
                 break;
             case 6: //blue
                 md.material = MeshStore.instance.listOfMaterials[2];
-                light.color = Color.blue;
-                light.intensity = 200;
+                light.color = Color.yellow;
+                light.intensity = 50;
                 break;
         }
-
     }
-
 }

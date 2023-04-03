@@ -32,7 +32,7 @@ public class RebindControl : MonoBehaviour
         bindingtext.text = "Enter Input";
 
         rebindingOperation = action.action.PerformInteractiveRebinding()
-            .WithControlsExcluding("Mouse")
+            
             .OnMatchWaitForAnother(0.1f)
             .OnComplete(operation => RebindComplete())
             .Start();

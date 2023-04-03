@@ -9,10 +9,19 @@ public class MovingSpike : MonoBehaviour
     
     public float delay;
     public Vector3 direction;
+    Vector3 originalPos;
 
     private void Start()
     {
+        originalPos = this.transform.localPosition;
         moving = Moving.none;
+        StartCoroutine(Movement(Moving.direct));
+    }
+
+    public void Reset()
+    {
+        StopAllCoroutines();
+        this.transform.localPosition = originalPos;
         StartCoroutine(Movement(Moving.direct));
     }
 

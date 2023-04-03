@@ -11,17 +11,19 @@ TagManager:
   - Ground
   - Color Capsule
   - Camera Change
+  - Bounce
+  - Spike
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Orange
+  - Blue
   - Water
   - UI
-  - Blue
+  - Yellow
   - Player
-  - Player Orange
   - Player Blue
+  - Player Yellow
   - 
   - 
   - 
