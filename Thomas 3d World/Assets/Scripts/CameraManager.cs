@@ -9,6 +9,7 @@ public class CameraManager : MonoBehaviour
     public static CameraManager instance;
     public CinemachineVirtualCamera currentCamera;
     TMP_Text chapterName;
+    int currentPriority;
 
     private void Awake()
     {
@@ -19,17 +20,23 @@ public class CameraManager : MonoBehaviour
         chapterName = GameObject.Find("Chapter Name").GetComponent<TMP_Text>();
     }
 
+    private void Start()
+    {
+        currentPriority = currentCamera.Priority;
+    }
+
     public void NewCamera(CinemachineVirtualCamera newCam, string nextChapter)
     {
-        if (newCam != null)
-        {
-            newCam.Priority = currentCamera.Priority+1;
-            currentCamera = newCam;
-        }
+        currentPriority++;
+        newCam.Priority = currentPriority;
+        currentCamera = newCam;
 
-        chapterName.text = nextChapter;
-        StopCoroutine(MoveChapter());
-        StartCoroutine(MoveChapter());
+        if (chapterName.text != nextChapter)
+        {
+            chapterName.text = nextChapter;
+            StopCoroutine(MoveChapter());
+            StartCoroutine(MoveChapter());
+        }
     }
 
     IEnumerator MoveChapter()
