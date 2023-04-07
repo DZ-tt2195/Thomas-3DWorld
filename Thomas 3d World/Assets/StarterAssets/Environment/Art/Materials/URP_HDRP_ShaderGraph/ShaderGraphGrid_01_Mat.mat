@@ -109,7 +109,7 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - Color_2B671050: {r: 0.59159255, g: 0.764151, b: 0.39288896, a: 1}
+    - Color_2B671050: {r: 0.4072846, g: 0.5283019, b: 0.26664296, a: 1}
     - Color_30A0CA2F: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

@@ -5,7 +5,6 @@ using UnityEngine;
 public class ColorCapsule : MonoBehaviour
 {
     public MeshRenderer md;
-    public Light light;
 
     void Start()
     {
@@ -13,18 +12,12 @@ public class ColorCapsule : MonoBehaviour
         {
             case 0: //default
                 md.material = MeshStore.instance.listOfMaterials[0];
-                light.color = Color.white;
-                light.intensity = 200;
                 break;
-            case 3: //orange
+            case 3: //blue
                 md.material = MeshStore.instance.listOfMaterials[1];
-                light.color = Color.blue;
-                light.intensity = 200;
                 break;
-            case 6: //blue
+            case 6: //yellow
                 md.material = MeshStore.instance.listOfMaterials[2];
-                light.color = Color.yellow;
-                light.intensity = 50;
                 break;
         }
     }

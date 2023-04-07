@@ -9,6 +9,7 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 using System.Diagnostics;
+using UnityEngine.Rendering;
 
 /* Note: animations are called via the controller for both the character and capsule using animator null checks
  */
@@ -145,7 +146,6 @@ namespace StarterAssets
             _playerInput = GetComponent<PlayerInput>();
 #else
 #endif
-
             // get a reference to our main camera
             if (_mainCamera == null)
             {
@@ -171,14 +171,14 @@ namespace StarterAssets
 
             for (int i = 0; i<UIboxes.Count; i++)
             {
-                /*
+
                 if (n == 0)
                     UIboxes[i].color = Color.black;
                 else if (n == 1)
-                    UIboxes[i].color = new Color(0, 0, 200);
+                    UIboxes[i].color = new Color(0, 0.4f, 1);
                 else
-                    UIboxes[i].color = new Color(0, 200, 0);
-                */
+                    UIboxes[i].color = new Color(1, 0.7f, 0);
+                
             }
         }
 
