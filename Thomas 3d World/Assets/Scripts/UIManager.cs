@@ -5,12 +5,18 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 using System.Diagnostics;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
     public static UIManager instance = null;
 
     public TMP_Text UItext;
+    public GameObject finished;
+    public TMP_Text deathsByType;
+    public TMP_Text deathsByLevel;
+    public Button finishButton;
+
     [HideInInspector] public int deaths = 0;
     [HideInInspector] public int collectibles = 0;
     [HideInInspector] public GameObject[] allCollectibles;
@@ -34,8 +40,33 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
+        finished.SetActive(false);
         stopwatch = new Stopwatch();
         stopwatch.Start();
+        finishButton.onClick.AddListener(ReturnToMenu);
+    }
+
+    public void ReturnToMenu()
+    {
+        SceneManager.LoadScene("Main Menu");
+    }
+
+    public void Finished()
+    {
+        finished.SetActive(true);
+        deathsByType.text = $"Deaths by type:" +
+            $"\nFalling: {Challenges.instance.deathCount[0]}" +
+            $"\nSpikes: {Challenges.instance.deathCount[1]}" +
+            $"\nRocks: {Challenges.instance.deathCount[2]}" +
+            $"\nRestarts: {Challenges.instance.deathCount[3]}";
+
+        deathsByLevel.text = $"Deaths by level:" +
+            $"\n1. Breaking In: {Challenges.instance.levelDeath[0]}" +
+            $"\n2. Inside the Temple Walls: {Challenges.instance.levelDeath[1]}" +
+            $"\n3. Ride in the Dark: {Challenges.instance.levelDeath[2]}" +
+            $"\n4. Watch for Rolling Rocks: {Challenges.instance.levelDeath[3]}" +
+            $"\n5. Spinning Right Round: {Challenges.instance.levelDeath[4]}";
+
     }
 
     private void Update()

@@ -208,7 +208,6 @@ namespace StarterAssets
 
         private void Update()
         {
-
             _hasAnimator = TryGetComponent(out _animator);
 
             if (dead)
@@ -267,9 +266,20 @@ namespace StarterAssets
 
         public void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("Rock") || other.CompareTag("Spike"))
+            if (other.CompareTag("Rock"))
             {
-                UnityEngine.Debug.Log(other.gameObject.name);
+                if (other.gameObject.name == "Death Floor")
+                    Challenges.instance.deathCount[0]++;
+                else
+                    Challenges.instance.deathCount[2]++;
+                Challenges.instance.levelDeath[CameraManager.instance.currentZone]++;
+                StartCoroutine(Died(true));
+            }
+
+            else if (other.CompareTag("Spike"))
+            {
+                Challenges.instance.deathCount[1]++;
+                Challenges.instance.levelDeath[CameraManager.instance.currentZone]++;
                 StartCoroutine(Died(true));
             }
 

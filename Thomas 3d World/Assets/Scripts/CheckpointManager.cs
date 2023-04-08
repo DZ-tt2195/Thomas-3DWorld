@@ -28,7 +28,8 @@ public class CheckpointManager : MonoBehaviour
         if (x != null && x.transform.parent.name == "END")
         {
             AchievementManager.instance.CheckForAchievements(UIManager.instance.stopwatch.Elapsed);
-            SceneManager.LoadScene("Main Menu");
+            UIManager.instance.Finished();
+            Challenges.instance.stopwatch.Stop();
         }
 
         if (lastCheckpoint != x)

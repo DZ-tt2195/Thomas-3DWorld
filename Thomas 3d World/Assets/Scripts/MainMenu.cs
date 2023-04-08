@@ -17,6 +17,7 @@ public class MainMenu : MonoBehaviour
 
     public Button playGame;
     public TMP_Dropdown dropdown;
+    public GameObject WarningText;
 
     public Button controlButton;
     public Button challengeButton;
@@ -35,6 +36,11 @@ public class MainMenu : MonoBehaviour
 
         achievementButton.onClick.AddListener(AchievementMenu);
         achievementImage.SetActive(false);
+    }
+
+    public void AchievementWarning()
+    {
+        WarningText.SetActive(dropdown.value != 0);
     }
 
     public void CloseMenus()
@@ -71,6 +77,10 @@ public class MainMenu : MonoBehaviour
         Challenges.instance.timed = challenges[1].isOn;
         Challenges.instance.oneLife = challenges[2].isOn;
         Challenges.instance.checkpointLoaded = dropdown.value;
+        for (int i = 0; i<Challenges.instance.deathCount.Length; i++)
+            Challenges.instance.deathCount[i] = 0;
+        for (int i = 0; i < Challenges.instance.levelDeath.Length; i++)
+            Challenges.instance.levelDeath[i] = 0;
         SceneManager.LoadScene(0);
     }
 

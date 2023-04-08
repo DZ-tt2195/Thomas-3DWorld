@@ -9,6 +9,7 @@ public class CameraManager : MonoBehaviour
     public static CameraManager instance;
     public CinemachineVirtualCamera currentCamera;
     TMP_Text chapterName;
+    public int currentZone;
     int currentPriority;
 
     private void Awake()
@@ -25,8 +26,9 @@ public class CameraManager : MonoBehaviour
         currentPriority = currentCamera.Priority;
     }
 
-    public void NewCamera(CinemachineVirtualCamera newCam, string nextChapter)
+    public void NewCamera(CinemachineVirtualCamera newCam, string nextChapter, int currentZone)
     {
+        this.currentZone = currentZone;
         currentPriority++;
         newCam.Priority = currentPriority;
         currentCamera = newCam;
