@@ -28,6 +28,7 @@ public class CameraManager : MonoBehaviour
 
     public void NewCamera(CinemachineVirtualCamera newCam, string nextChapter, int currentZone)
     {
+        Debug.Log("change camera");
         this.currentZone = currentZone;
         currentPriority++;
         newCam.Priority = currentPriority;

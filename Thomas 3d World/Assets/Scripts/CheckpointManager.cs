@@ -29,6 +29,7 @@ public class CheckpointManager : MonoBehaviour
         {
             AchievementManager.instance.CheckForAchievements(UIManager.instance.stopwatch.Elapsed);
             UIManager.instance.Finished();
+            UIManager.instance.stopwatch.Stop();
             Challenges.instance.stopwatch.Stop();
         }
 

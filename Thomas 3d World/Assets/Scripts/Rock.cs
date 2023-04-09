@@ -56,7 +56,6 @@ public class Rock : MonoBehaviour
     {
         if (other.CompareTag("Rock"))
         {
-            Debug.Log(other.gameObject.name);
             Destroy(this.gameObject.transform.parent.gameObject);
         }
     }
