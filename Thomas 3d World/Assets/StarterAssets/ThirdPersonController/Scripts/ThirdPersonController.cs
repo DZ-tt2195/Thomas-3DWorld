@@ -222,7 +222,11 @@ namespace StarterAssets
                 Restart();
 
                 if (Challenges.instance.timed && Challenges.instance.stopwatch.Elapsed.Seconds >= 15)
+                {
+                    Challenges.instance.deathCount[3]++;
+                    Challenges.instance.levelDeath[CameraManager.instance.currentZone]++;
                     StartCoroutine(Died(true));
+                }
             }
 
         }

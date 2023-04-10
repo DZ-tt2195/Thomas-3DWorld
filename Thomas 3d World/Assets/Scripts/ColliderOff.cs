@@ -13,7 +13,7 @@ public class ColliderOff : MonoBehaviour
 
     IEnumerator ColliderOn()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.1f);
         collider.enabled = true;
     }
 }
