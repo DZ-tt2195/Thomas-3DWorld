@@ -11,6 +11,12 @@ public class RockGenerator : MonoBehaviour
     public float rockScale;
     public float delay;
     public float rockSpeed;
+    Transform storage;
+
+    private void Awake()
+    {
+        storage = GameObject.Find("Where Rocks Go").transform;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +32,7 @@ public class RockGenerator : MonoBehaviour
         newRock.transform.position = this.transform.position;
         newRock.transform.localScale = new Vector3(rockScale, rockScale, rockScale);
         newRock.GetComponentInChildren<Rock>().RockSetup(rockDirection, spawnLayer.ToString(), rockSpeed);
-
+        newRock.transform.SetParent(storage);
         yield return new WaitForSeconds(delay);
         StartCoroutine(SpawnRock());
     }
