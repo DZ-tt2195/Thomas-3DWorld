@@ -59,7 +59,12 @@ public class AchievementManager : MonoBehaviour
 
     bool AllCollectibles()
     {
-        return UIManager.instance.collectibles == UIManager.instance.allCollectibles.Length;
+        for (int i = 0; i<UIManager.instance.jewelImage.Count; i++)
+        {
+            if (UIManager.instance.jewelImage[i].color.a != 1)
+                return false;
+        }
+        return true;
     }
 
     public void CheckForAchievements(TimeSpan y)

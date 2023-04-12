@@ -3,7 +3,12 @@ guid: 4d1b885af17d74d5d871f3b6baff750c
 ModelImporter:
   serializedVersion: 22103
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MI_rupee_Green
+    second: {fileID: 2100000, guid: 5d8f31c62e7264527a2e74471374869a, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

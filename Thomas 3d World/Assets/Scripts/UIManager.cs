@@ -18,8 +18,8 @@ public class UIManager : MonoBehaviour
     public Button finishButton;
 
     [HideInInspector] public int deaths = 0;
-    [HideInInspector] public int collectibles = 0;
     [HideInInspector] public GameObject[] allCollectibles;
+    [HideInInspector] public List<RawImage> jewelImage = new List<RawImage>();
 
     float rotate = 0;
     public Stopwatch stopwatch;
@@ -36,6 +36,12 @@ public class UIManager : MonoBehaviour
         }
         Application.targetFrameRate = 60;
         allCollectibles = GameObject.FindGameObjectsWithTag("Jewel");
+
+        for (int i = 0; i < this.transform.childCount; i++)
+        {
+            jewelImage.Add(this.transform.GetChild(i).GetComponent<RawImage>());
+            jewelImage[i].color = new Color(1, 1, 1, 0.2f);
+        }
     }
 
     private void Start()
@@ -73,7 +79,7 @@ public class UIManager : MonoBehaviour
     {
         UItext.text = $"Time: {ConvertTimeToString(stopwatch.Elapsed)}" +
         $"\nDeaths: {deaths}" +
-        $"\nJewels: {collectibles} / {allCollectibles.Length}" +
+        $"\nJewels" +
         $"\nFPS: {CalculateFrames():F2}";
 
         rotate += (UnityEngine.Random.Range(0, 1) == 0) ? 5 : -5;
@@ -105,5 +111,15 @@ public class UIManager : MonoBehaviour
         }
         //return (lastupdate <= 60) ? lastupdate : 60;
         return lastupdate;
+    }
+
+    public void EnableJewel(string num)
+    {
+        jewelImage[int.Parse(num)].color = new Color(1, 1, 1, 1);
+    }
+
+    public void DisableJewel(string num)
+    {
+        jewelImage[int.Parse(num)].color = new Color(1, 1, 1, 0.2f);
     }
 }

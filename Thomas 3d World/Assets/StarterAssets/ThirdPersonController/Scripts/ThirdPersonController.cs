@@ -24,6 +24,7 @@ namespace StarterAssets
     {
         public List<GameObject> renderers = new List<GameObject>();
         public List<Image> UIboxes = new List<Image>();
+        List<GameObject> jewelsInStorage = new List<GameObject>();
 
         [Header("Player")]
         [Tooltip("Move speed of the character in m/s")]
@@ -248,7 +249,6 @@ namespace StarterAssets
                 {
                     CheckpointManager.instance.NewCheckpoint(null);
                     UIManager.instance.stopwatch.Restart();
-                    UIManager.instance.collectibles = 0;
 
                     for (int i = 0; i < UIManager.instance.allCollectibles.Length; i++)
                         UIManager.instance.allCollectibles[i].SetActive(true);
@@ -266,6 +266,13 @@ namespace StarterAssets
                 allTraps[i].Reset();
             for (int i = 0; i < allMovers.Length; i++)
                 allMovers[i].Reset();
+
+            for (int i = 0; i < jewelsInStorage.Count; i++)
+            {
+                jewelsInStorage[i].SetActive(true);
+                UIManager.instance.DisableJewel(jewelsInStorage[i].name);
+            }
+            jewelsInStorage.Clear();
         }
 
         public void OnTriggerEnter(Collider other)
@@ -292,12 +299,15 @@ namespace StarterAssets
                 SetToColor(0);
                 this.gameObject.layer = 7;
                 CheckpointManager.instance.NewCheckpoint(other.gameObject);
+                if (!Challenges.instance.oneLife)
+                    jewelsInStorage.Clear();
             }
 
             else if (other.CompareTag("Jewel"))
             {
                 other.gameObject.SetActive(false);
-                UIManager.instance.collectibles++;
+                jewelsInStorage.Add(other.gameObject);
+                UIManager.instance.EnableJewel(other.name);
             }
 
             else if (other.CompareTag("Color Capsule"))
