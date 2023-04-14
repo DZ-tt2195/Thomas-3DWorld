@@ -109,6 +109,7 @@ namespace StarterAssets
         private int _animIDJump;
         private int _animIDFreeFall;
         private int _animIDMotionSpeed;
+        private int _animIDDeath;
 
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
         private PlayerInput _playerInput;
@@ -178,8 +179,7 @@ namespace StarterAssets
                 else if (n == 1)
                     UIboxes[i].color = new Color(0, 0.4f, 1);
                 else
-                    UIboxes[i].color = new Color(1, 0.7f, 0);
-                
+                    UIboxes[i].color = new Color(1, 0.7f, 0);      
             }
         }
 
@@ -197,13 +197,13 @@ namespace StarterAssets
             _fallTimeoutDelta = FallTimeout;
 
             if (Challenges.instance.timed)
-                StartCoroutine(Died(false));
+                StartCoroutine(Died(false, true));
 
             if (Challenges.instance.checkpointLoaded > 0)
             {
                 GameObject x = CheckpointManager.instance.allCheckpoints[Challenges.instance.checkpointLoaded - 1];
                 CheckpointManager.instance.transform.position = new Vector3(x.transform.position.x, x.transform.position.y, x.transform.position.z);
-                StartCoroutine(Died(false));
+                StartCoroutine(Died(false, true));
             }
         }
 
@@ -213,7 +213,7 @@ namespace StarterAssets
 
             if (dead)
             {
-                transform.position = CheckpointManager.instance.transform.position;
+                //transform.position = CheckpointManager.instance.transform.position;
             }
             else
             {
@@ -226,7 +226,7 @@ namespace StarterAssets
                 {
                     Challenges.instance.deathCount[3]++;
                     Challenges.instance.levelDeath[CameraManager.instance.currentZone]++;
-                    StartCoroutine(Died(true));
+                    StartCoroutine(Died(true, false));
                 }
             }
 
@@ -237,7 +237,7 @@ namespace StarterAssets
             CameraRotation();
         }
 
-        public IEnumerator Died(bool count)
+        public IEnumerator Died(bool count, bool deathFloor)
         {
             Challenges.instance.stopwatch.Restart();
             Challenges.instance.jumpsLeft = 1;
@@ -253,19 +253,22 @@ namespace StarterAssets
                     for (int i = 0; i < UIManager.instance.allCollectibles.Length; i++)
                         UIManager.instance.allCollectibles[i].SetActive(true);
                 }
-
             }
-            dead = true;
-            yield return new WaitForSeconds(0.2f);
 
+            dead = true;
+            _playerInput.enabled = false;
+
+            if (!deathFloor)
+            {
+                _animator.SetBool(_animIDDeath, true);
+                yield return new WaitForSeconds(1.3f);
+            }
+            _playerInput.enabled = true;
             SetToColor(0);
             this.gameObject.layer = 7;
-            dead = false;
 
-            for (int i = 0; i < allTraps.Length; i++)
-                allTraps[i].Reset();
-            for (int i = 0; i < allMovers.Length; i++)
-                allMovers[i].Reset();
+            _animator.SetBool(_animIDDeath, false);
+            dead = false;
 
             for (int i = 0; i < jewelsInStorage.Count; i++)
             {
@@ -273,60 +276,78 @@ namespace StarterAssets
                 UIManager.instance.DisableJewel(jewelsInStorage[i].name);
             }
             jewelsInStorage.Clear();
+
+            for (int i = 0; i < 10; i++)
+            {
+                this.transform.position = CheckpointManager.instance.transform.position;
+                for (int j = 0; j < allTraps.Length; j++)
+                    allTraps[j].Reset();
+                for (int j = 0; j < allMovers.Length; j++)
+                    allMovers[j].Reset();
+                yield return new WaitForSeconds(0.01f);
+            }
         }
 
         public void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("Rock"))
+            if (!dead)
             {
-                if (other.gameObject.name == "Death Floor")
-                    Challenges.instance.deathCount[0]++;
-                else
-                    Challenges.instance.deathCount[2]++;
-                Challenges.instance.levelDeath[CameraManager.instance.currentZone]++;
-                StartCoroutine(Died(true));
-            }
-
-            else if (other.CompareTag("Spike"))
-            {
-                Challenges.instance.deathCount[1]++;
-                Challenges.instance.levelDeath[CameraManager.instance.currentZone]++;
-                StartCoroutine(Died(true));
-            }
-
-            else if (other.CompareTag("Checkpoint"))
-            {
-                SetToColor(0);
-                this.gameObject.layer = 7;
-                CheckpointManager.instance.NewCheckpoint(other.gameObject);
-                if (!Challenges.instance.oneLife)
-                    jewelsInStorage.Clear();
-            }
-
-            else if (other.CompareTag("Jewel"))
-            {
-                other.gameObject.SetActive(false);
-                jewelsInStorage.Add(other.gameObject);
-                UIManager.instance.EnableJewel(other.name);
-            }
-
-            else if (other.CompareTag("Color Capsule"))
-            {
-                this.gameObject.layer = other.gameObject.layer;
-                switch (gameObject.layer)
+                if (other.CompareTag("Rock"))
                 {
-                    case 0:
-                        this.gameObject.layer = 7;
-                        SetToColor(0);
-                        break;
-                    case 3: //blue
-                        this.gameObject.layer = 8;
-                        SetToColor(1);
-                        break;
-                    case 6: //yellow
-                        this.gameObject.layer = 9;
-                        SetToColor(2);
-                        break;
+                    if (other.gameObject.name == "Death Floor")
+                    {
+                        Challenges.instance.deathCount[0]++;
+                        StartCoroutine(Died(true, true));
+                    }
+                    else
+                    {
+                        Challenges.instance.deathCount[2]++;
+                        StartCoroutine(Died(true, false));
+                    }
+                    Challenges.instance.levelDeath[CameraManager.instance.currentZone]++;
+                }
+
+                else if (other.CompareTag("Spike"))
+                {
+                    Challenges.instance.deathCount[1]++;
+                    Challenges.instance.levelDeath[CameraManager.instance.currentZone]++;
+                    StartCoroutine(Died(true, false));
+                }
+
+                else if (other.CompareTag("Checkpoint"))
+                {
+                    SetToColor(0);
+                    this.gameObject.layer = 7;
+                    CheckpointManager.instance.NewCheckpoint(other.gameObject);
+                    if (!Challenges.instance.oneLife)
+                        jewelsInStorage.Clear();
+                }
+
+                else if (other.CompareTag("Jewel"))
+                {
+                    other.gameObject.SetActive(false);
+                    jewelsInStorage.Add(other.gameObject);
+                    UIManager.instance.EnableJewel(other.name);
+                }
+
+                else if (other.CompareTag("Color Capsule"))
+                {
+                    this.gameObject.layer = other.gameObject.layer;
+                    switch (gameObject.layer)
+                    {
+                        case 0:
+                            this.gameObject.layer = 7;
+                            SetToColor(0);
+                            break;
+                        case 3: //blue
+                            this.gameObject.layer = 8;
+                            SetToColor(1);
+                            break;
+                        case 6: //yellow
+                            this.gameObject.layer = 9;
+                            SetToColor(2);
+                            break;
+                    }
                 }
             }
         }
@@ -338,6 +359,7 @@ namespace StarterAssets
             _animIDJump = Animator.StringToHash("Jump");
             _animIDFreeFall = Animator.StringToHash("FreeFall");
             _animIDMotionSpeed = Animator.StringToHash("MotionSpeed");
+            _animIDDeath = Animator.StringToHash("Die");
         }
 
         private void GroundedCheck()
@@ -390,7 +412,7 @@ namespace StarterAssets
             if (_input.restart)
             {
                 _input.restart = false;
-                StartCoroutine(Died(true));
+                StartCoroutine(Died(true, false));
             }
         }
 
