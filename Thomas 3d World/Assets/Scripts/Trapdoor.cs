@@ -28,7 +28,7 @@ public class Trapdoor : MonoBehaviour
         transform.localEulerAngles = originalRot;
         transform.position = originalPos;
         myState = State.waiting;
-        StopCoroutine(Delete());
+        StopAllCoroutines();
     }
 
     public void OnTriggerEnter(Collider other)
@@ -43,7 +43,14 @@ public class Trapdoor : MonoBehaviour
         myState = State.move;
         yield return new WaitForSeconds(stopMoving);
         if (myState == State.move)
+        {
             myState = State.done;
+        }
+        else
+        {
+            transform.localEulerAngles = originalRot;
+            transform.position = originalPos;
+        }
     }
 
     private void Update()
