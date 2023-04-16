@@ -175,11 +175,11 @@ namespace StarterAssets
             {
 
                 if (n == 0)
-                    UIboxes[i].color = Color.black;
+                    UIboxes[i].color = new Color(0, 0, 0, 0.5f);
                 else if (n == 1)
-                    UIboxes[i].color = new Color(0, 0.4f, 1);
+                    UIboxes[i].color = new Color(0, 0.4f, 1, 0.3f);
                 else
-                    UIboxes[i].color = new Color(1, 0.7f, 0);      
+                    UIboxes[i].color = new Color(1, 0.7f, 0, 0.3f);      
             }
         }
 
@@ -239,22 +239,6 @@ namespace StarterAssets
 
         public IEnumerator Died(bool count, bool deathFloor)
         {
-            Challenges.instance.stopwatch.Restart();
-            Challenges.instance.jumpsLeft = 1;
-
-            if (count)
-            {
-                UIManager.instance.deaths++;
-                if (Challenges.instance.oneLife)
-                {
-                    CheckpointManager.instance.NewCheckpoint(null);
-                    UIManager.instance.stopwatch.Restart();
-
-                    for (int i = 0; i < UIManager.instance.allCollectibles.Length; i++)
-                        UIManager.instance.allCollectibles[i].SetActive(true);
-                }
-            }
-
             dead = true;
             _playerInput.enabled = false;
 
@@ -276,6 +260,22 @@ namespace StarterAssets
                 UIManager.instance.DisableJewel(jewelsInStorage[i].name);
             }
             jewelsInStorage.Clear();
+
+            Challenges.instance.stopwatch.Restart();
+            Challenges.instance.jumpsLeft = 1;
+
+            if (count)
+            {
+                UIManager.instance.deaths++;
+                if (Challenges.instance.oneLife)
+                {
+                    CheckpointManager.instance.NewCheckpoint(null);
+                    UIManager.instance.stopwatch.Restart();
+
+                    for (int i = 0; i < UIManager.instance.allCollectibles.Length; i++)
+                        UIManager.instance.allCollectibles[i].SetActive(true);
+                }
+            }
 
             for (int i = 0; i < 10; i++)
             {

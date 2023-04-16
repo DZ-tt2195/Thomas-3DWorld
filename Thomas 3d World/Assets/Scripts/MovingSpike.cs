@@ -11,11 +11,16 @@ public class MovingSpike : MonoBehaviour
     public Vector3 direction;
     Vector3 originalPos;
 
-    private void Start()
+    private void Awake()
     {
         originalPos = this.transform.localPosition;
         moving = Moving.none;
+    }
+
+    private void Start()
+    {
         StartCoroutine(Movement(Moving.direct));
+
     }
 
     public void Reset()

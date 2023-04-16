@@ -83,13 +83,13 @@ Material:
     - Vector1_3402D67A: 0.5
     - Vector1_3655428E: 5
     - Vector1_5B05FA1F: 0
-    - Vector1_6B67A8FF: -40
+    - Vector1_6B67A8FF: -50
     - Vector1_7810F718: 0.05
     - Vector1_B6126E6E: 1
     - Vector1_CA7D5F3: 100
     - Vector1_D5FBE925: 5
     - Vector1_F2A922B4: 0
-    - Vector1_F5FD9210: 30
+    - Vector1_F5FD9210: 80
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1

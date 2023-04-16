@@ -15,12 +15,16 @@ public class Trapdoor : MonoBehaviour
 
     Vector3 originalRot;
     public Vector3 rotation;
+    List<GameObject> children = new List<GameObject>();
 
-    private void Start()
+    private void Awake()
     {
         myState = State.waiting;
         originalPos = transform.position;
         originalRot = transform.localEulerAngles;
+
+        for (int i = 0; i < this.transform.childCount; i++)
+            children.Add(this.transform.GetChild(i).gameObject);
     }
 
     public void Reset()
@@ -29,6 +33,8 @@ public class Trapdoor : MonoBehaviour
         transform.position = originalPos;
         myState = State.waiting;
         StopAllCoroutines();
+        for (int i = 0; i < this.transform.childCount; i++)
+            children[i].SetActive(true);
     }
 
     public void OnTriggerEnter(Collider other)
@@ -45,11 +51,16 @@ public class Trapdoor : MonoBehaviour
         if (myState == State.move)
         {
             myState = State.done;
+            for (int i = 0; i < this.transform.childCount; i++)
+                children[i].SetActive(false);
+
         }
         else
         {
             transform.localEulerAngles = originalRot;
             transform.position = originalPos;
+            for (int i = 0; i < this.transform.childCount; i++)
+                children[i].SetActive(true);
         }
     }
 
