@@ -98,7 +98,7 @@ public class UIManager : MonoBehaviour
 
     string CalculateJumps()
     {
-        return $"{Challenges.instance.jumpsLeft.ToString()} / {(Challenges.instance.oneJump ? 1 : 2)}";
+        return $"{Challenges.instance.jumpsLeft.ToString()} / {(Challenges.instance.oneJump ? 1 : 3)}";
     }
 
     float CalculateFrames()

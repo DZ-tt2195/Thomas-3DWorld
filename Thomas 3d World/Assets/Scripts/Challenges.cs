@@ -41,7 +41,7 @@ public class Challenges : MonoBehaviour
     {
         stopwatch = new Stopwatch();
         stopwatch.Start();
-        jumpsLeft = oneJump ? 1 : 2;
+        jumpsLeft = oneJump ? 1 : 3;
     }
 
     private void Update()
