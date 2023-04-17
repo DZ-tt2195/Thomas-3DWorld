@@ -104,7 +104,7 @@ public class AchievementManager : MonoBehaviour
             }
             UnityEngine.Debug.Log($"{y.Minutes}:{y.Seconds}");
 
-            if (y.Minutes == 0 && y.Seconds < 30)
+            if (y.Minutes == 0 && y.Seconds <= 59)
                 completed[10] = true;
         }
     }

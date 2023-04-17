@@ -13,7 +13,7 @@ public class Challenges : MonoBehaviour
     TMP_Text challengeText;
 
     public bool oneJump;
-    [HideInInspector]public int jumpsLeft = 1;
+    public int jumpsLeft;
 
     public bool timed;
     public Stopwatch stopwatch;
@@ -41,6 +41,7 @@ public class Challenges : MonoBehaviour
     {
         stopwatch = new Stopwatch();
         stopwatch.Start();
+        jumpsLeft = oneJump ? 1 : 2;
     }
 
     private void Update()
@@ -63,10 +64,6 @@ public class Challenges : MonoBehaviour
             {
                 challengeText.transform.parent.gameObject.SetActive(true);
                 challengeText.text += $"-One Jump Challenge\n";
-                if (jumpsLeft == 1)
-                    challengeText.text += $"(1 jump left)\n";
-                else
-                    challengeText.text += $"(0 jumps left)\n";
             }
             if (timed)
             {

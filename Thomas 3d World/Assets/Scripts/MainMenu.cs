@@ -81,7 +81,7 @@ public class MainMenu : MonoBehaviour
             Challenges.instance.deathCount[i] = 0;
         for (int i = 0; i < Challenges.instance.levelDeath.Length; i++)
             Challenges.instance.levelDeath[i] = 0;
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     public void ResetAchievements()

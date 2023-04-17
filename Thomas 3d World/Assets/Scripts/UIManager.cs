@@ -79,6 +79,7 @@ public class UIManager : MonoBehaviour
         UItext.text = $"Time: {ConvertTimeToString(stopwatch.Elapsed)}" +
         $"\nDeaths: {deaths}" +
         $"\nJewels" +
+        $"\nJumps: {CalculateJumps()} " +
         $"\nFPS: {CalculateFrames():F2}";
 
         rotate += (UnityEngine.Random.Range(0, 1) == 0) ? 5 : -5;
@@ -93,6 +94,11 @@ public class UIManager : MonoBehaviour
     {
         string part = x.Seconds < 10 ? $"0{x.Seconds}" : $"{x.Seconds}";
         return $"{x.Minutes}:" + part;
+    }
+
+    string CalculateJumps()
+    {
+        return $"{Challenges.instance.jumpsLeft.ToString()} / {(Challenges.instance.oneJump ? 1 : 2)}";
     }
 
     float CalculateFrames()

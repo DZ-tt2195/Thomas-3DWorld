@@ -48,16 +48,11 @@ namespace StarterAssets
 
 		public void OnJump(InputValue value)
 		{
-			if (Challenges.instance.oneJump)
+			if (Challenges.instance.jumpsLeft > 0)
 			{
-				if (Challenges.instance.jumpsLeft > 0)
-				{
-					Challenges.instance.jumpsLeft--;
-					JumpInput(value.isPressed);
-				}
-			}
-			else
+				Challenges.instance.jumpsLeft--;
 				JumpInput(value.isPressed);
+			}
 		}
 
 		public void JumpInput(bool newJumpState)

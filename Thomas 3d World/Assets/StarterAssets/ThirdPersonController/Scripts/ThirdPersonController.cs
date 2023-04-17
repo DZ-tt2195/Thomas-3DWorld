@@ -262,7 +262,7 @@ namespace StarterAssets
             jewelsInStorage.Clear();
 
             Challenges.instance.stopwatch.Restart();
-            Challenges.instance.jumpsLeft = 1;
+            Challenges.instance.jumpsLeft = Challenges.instance.oneJump ? 1 : 2;
 
             if (count)
             {

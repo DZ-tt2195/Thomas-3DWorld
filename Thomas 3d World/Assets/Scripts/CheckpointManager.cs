@@ -48,7 +48,7 @@ public class CheckpointManager : MonoBehaviour
                 this.transform.position = new Vector3(x.transform.position.x, x.transform.position.y, x.transform.position.z);
 
             Challenges.instance.stopwatch.Restart();
-            Challenges.instance.jumpsLeft = 1;
+            Challenges.instance.jumpsLeft = Challenges.instance.oneJump ? 1 : 2;
         }
     }
 
