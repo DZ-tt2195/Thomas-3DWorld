@@ -9,13 +9,11 @@ public class MoveToClickPoint : MonoBehaviour
 
     public Animator ani;
 
-    public float speed;
-
     public Transform playerObject;
 
     Vector3 home;
 
-    void Start()
+    void Awake()
     {
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         Cursor.lockState = CursorLockMode.Confined;
@@ -25,19 +23,6 @@ public class MoveToClickPoint : MonoBehaviour
 
     void Update()
     {
-        /*
-        if (Input.GetMouseButtonDown(0))
-        {
-            RaycastHit hit;
-
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
-            {
-                agent.destination = hit.point;
-
-            }
-        }
-        */
-
         if ((playerObject.gameObject.layer == 8 && this.gameObject.layer == 3) ||
             playerObject.gameObject.layer == 9 && this.gameObject.layer == 6)
             agent.destination = home;
@@ -47,10 +32,5 @@ public class MoveToClickPoint : MonoBehaviour
 
     private void FixedUpdate()
     {
-        float objectSpeed = GetComponent<NavMeshAgent>().velocity.magnitude;
-
-        //ani.SetFloat("Speed", objectSpeed);
-
-        //print(speed);
     }
 }

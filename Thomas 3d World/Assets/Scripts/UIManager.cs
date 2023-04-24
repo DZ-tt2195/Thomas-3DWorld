@@ -71,7 +71,8 @@ public class UIManager : MonoBehaviour
             $"\n2. Inside the Temple Walls: {Challenges.instance.levelDeath[1]}" +
             $"\n3. Ride in the Dark: {Challenges.instance.levelDeath[2]}" +
             $"\n4. Watch for Rolling Rocks: {Challenges.instance.levelDeath[3]}" +
-            $"\n5. Downwards Domino: {Challenges.instance.levelDeath[4]}";
+            $"\n5. Downwards Domino: {Challenges.instance.levelDeath[4]}" +
+            $"\n6. Through the Storm: {Challenges.instance.levelDeath[5]}";
     }
 
     private void Update()

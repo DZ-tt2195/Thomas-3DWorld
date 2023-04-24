@@ -22,7 +22,7 @@ public class Challenges : MonoBehaviour
     public int checkpointLoaded;
 
     public int[] deathCount = new int[4]; //0: falling 1: spikes 2: rocks 3: restart
-    public int[] levelDeath = new int[5];
+    public int[] levelDeath = new int[6];
 
     private void Awake()
     {
@@ -44,6 +44,14 @@ public class Challenges : MonoBehaviour
         jumpsLeft = oneJump ? 1 : 3;
     }
 
+    int CalculateTime()
+    {
+        if (15 - stopwatch.Elapsed.Seconds < 0)
+            return 0;
+        else
+            return 15 - stopwatch.Elapsed.Seconds;
+    }
+
     private void Update()
     {
         if (SceneManager.GetActiveScene().name != "Main Menu")
@@ -54,12 +62,6 @@ public class Challenges : MonoBehaviour
             challengeText.text = "";
             challengeText.transform.parent.gameObject.SetActive(false);
 
-            if (checkpointLoaded > 0)
-            {
-                challengeText.transform.parent.gameObject.SetActive(true);
-                challengeText.text += $"-Loaded from a checkpoint\n(Achievements disabled)\n";
-            }
-
             if (oneJump)
             {
                 challengeText.transform.parent.gameObject.SetActive(true);
@@ -69,13 +71,14 @@ public class Challenges : MonoBehaviour
             {
                 challengeText.transform.parent.gameObject.SetActive(true);
                 challengeText.text += $"-15sec Timer Challenge\n" +
-                    $"({15 - stopwatch.Elapsed.Seconds} seconds left)\n";
+                    $"({CalculateTime()} seconds)\n";
             }
             if (oneLife)
             {
                 challengeText.transform.parent.gameObject.SetActive(true);
                 challengeText.text += $"-One Life Challenge\n";
             }
+
         }
     }
 }

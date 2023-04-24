@@ -15891,6 +15891,8 @@ MonoBehaviour:
       m_Image: {fileID: 0}
     - m_Text: 5. Downwards Domino
       m_Image: {fileID: 0}
+    - m_Text: 6. Through the Storm
+      m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -17330,7 +17332,7 @@ GameObject:
   - component: {fileID: 878824731}
   - component: {fileID: 878824730}
   m_Layer: 5
-  m_Name: Text (TMP) (1)
+  m_Name: Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22323,7 +22325,7 @@ GameObject:
   - component: {fileID: 1072228545}
   - component: {fileID: 1072228544}
   m_Layer: 5
-  m_Name: Text (TMP) (2)
+  m_Name: Description
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23631,7 +23633,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Path: {fileID: 2118131573}
-  m_PathPosition: 0.4076538
+  m_PathPosition: 0.6172161
   m_PositionUnits: 0
   m_PathOffset: {x: -1, y: 3, z: -8.5}
   m_XDamping: 0
@@ -26338,7 +26340,7 @@ GameObject:
   - component: {fileID: 1266331325}
   - component: {fileID: 1266331324}
   m_Layer: 5
-  m_Name: Text (TMP) (1)
+  m_Name: Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29175,7 +29177,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1309579344
 RectTransform:
   m_ObjectHideFlags: 0
@@ -29705,7 +29707,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 2}
-  m_SizeDelta: {x: 0, y: 103.3299}
+  m_SizeDelta: {x: 0, y: 130}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1380693676
 MonoBehaviour:
@@ -34171,7 +34173,7 @@ GameObject:
   - component: {fileID: 1760668904}
   - component: {fileID: 1760668903}
   m_Layer: 5
-  m_Name: Text (TMP) (2)
+  m_Name: Description
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34217,7 +34219,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Only 1 jump per checkpoint (instead of 2)
+  m_text: Only 1 jump per checkpoint (instead of 3)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -42037,7 +42039,7 @@ GameObject:
   - component: {fileID: 2019440713}
   - component: {fileID: 2019440712}
   m_Layer: 5
-  m_Name: Text (TMP) (2)
+  m_Name: Description
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42248,7 +42250,7 @@ GameObject:
   - component: {fileID: 2029619080}
   - component: {fileID: 2029619079}
   m_Layer: 5
-  m_Name: Text (TMP) (1)
+  m_Name: Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43166,7 +43168,7 @@ GameObject:
   - component: {fileID: 2071039693}
   - component: {fileID: 2071039692}
   m_Layer: 5
-  m_Name: Label (1)
+  m_Name: Load from a checkpoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43246,7 +43248,7 @@ MonoBehaviour:
   m_fontSizeMin: 10
   m_fontSizeMax: 15
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
