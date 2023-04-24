@@ -314,6 +314,13 @@ namespace StarterAssets
                     StartCoroutine(Died(true, false));
                 }
 
+                else if (other.CompareTag("Knight"))
+                {
+                    Challenges.instance.deathCount[3]++;
+                    Challenges.instance.levelDeath[CameraManager.instance.currentZone]++;
+                    StartCoroutine(Died(true, false));
+                }
+
                 else if (other.CompareTag("Checkpoint"))
                 {
                     SetToColor(0);

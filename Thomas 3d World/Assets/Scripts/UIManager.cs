@@ -64,7 +64,8 @@ public class UIManager : MonoBehaviour
             $"\nFalling: {Challenges.instance.deathCount[0]}" +
             $"\nSpikes: {Challenges.instance.deathCount[1]}" +
             $"\nRocks: {Challenges.instance.deathCount[2]}" +
-            $"\nRestarts: {Challenges.instance.deathCount[3]}";
+            $"\nEnemies: {Challenges.instance.deathCount[3]}" +
+            $"\nRestarts: {Challenges.instance.deathCount[4]}";
 
         deathsByLevel.text = $"Deaths by level:" +
             $"\n1. Breaking In: {Challenges.instance.levelDeath[0]}" +
