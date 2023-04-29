@@ -254,13 +254,6 @@ namespace StarterAssets
             _animator.SetBool(_animIDDeath, false);
             dead = false;
 
-            for (int i = 0; i < jewelsInStorage.Count; i++)
-            {
-                jewelsInStorage[i].SetActive(true);
-                UIManager.instance.DisableJewel(jewelsInStorage[i].name);
-            }
-            jewelsInStorage.Clear();
-
             Challenges.instance.stopwatch.Restart();
             Challenges.instance.jumpsLeft = Challenges.instance.oneJump ? 1 : 3;
 
@@ -279,6 +272,14 @@ namespace StarterAssets
 
             for (int i = 0; i < 10; i++)
             {
+                for (int j = 0; j < jewelsInStorage.Count; j++)
+                {
+                    UnityEngine.Debug.Log($"disable {jewelsInStorage[j].name}");
+                    jewelsInStorage[j].SetActive(true);
+                    UIManager.instance.DisableJewel(jewelsInStorage[j].name);
+                }
+                jewelsInStorage.Clear();
+
                 this.transform.position = CheckpointManager.instance.transform.position;
                 for (int j = 0; j < allTraps.Length; j++)
                     allTraps[j].Reset();

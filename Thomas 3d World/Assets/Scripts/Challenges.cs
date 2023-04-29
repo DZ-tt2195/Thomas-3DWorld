@@ -21,8 +21,9 @@ public class Challenges : MonoBehaviour
     public bool oneLife;
     public int checkpointLoaded;
 
+    
     public int[] deathCount = new int[5]; //0: falling 1: spikes 2: rocks //3: knight 4: restart
-    public int[] levelDeath = new int[6];
+    public int[] levelDeath = new int[7];
 
     private void Awake()
     {

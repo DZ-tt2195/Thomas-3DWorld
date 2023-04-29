@@ -12,9 +12,9 @@ NavMeshProjectSettings:
   - name: Jump
     cost: 2
   - name: Blue
-    cost: 1
+    cost: 2
   - name: Yellow
-    cost: 1
+    cost: 2
   - name: 
     cost: 1
   - name: 

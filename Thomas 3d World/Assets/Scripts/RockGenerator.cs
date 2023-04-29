@@ -31,7 +31,12 @@ public class RockGenerator : MonoBehaviour
         GameObject newRock = Instantiate(rockclone);
         newRock.transform.position = this.transform.position;
         newRock.transform.localScale = new Vector3(rockScale, rockScale, rockScale);
-        newRock.GetComponentInChildren<Rock>().RockSetup(rockDirection, spawnLayer.ToString(), rockSpeed);
+
+        if (this.gameObject.name == "Final Boss")
+            newRock.GetComponentInChildren<Rock>().RockSetup(new Vector3(Random.Range(-1, 1f), 0, Random.Range(-1, 1f)), rockSpeed);
+        else
+            newRock.GetComponentInChildren<Rock>().RockSetup(rockDirection, spawnLayer.ToString(), rockSpeed);
+
         newRock.transform.SetParent(storage);
         yield return new WaitForSeconds(delay);
         StartCoroutine(SpawnRock());

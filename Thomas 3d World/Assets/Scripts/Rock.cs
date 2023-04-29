@@ -5,11 +5,38 @@ using UnityEngine;
 public class Rock : MonoBehaviour
 {
     public Rigidbody rb;
-    public enum Direction { forward, backward, left, right }
+    public enum Direction { forward, backward, left, right, custom }
     public Direction direction;
     public MeshRenderer md1;
     public MeshRenderer md2;
     float multiplier = 1;
+    Vector3 customPush;
+
+    void Start()
+    {
+        StartCoroutine(DeleteSelf());
+    }
+
+    IEnumerator DeleteSelf()
+    {
+        yield return new WaitForSeconds(10f);
+        Destroy(this.gameObject.transform.parent.gameObject);
+    }
+
+    public void RockSetup(Vector3 customPush, float multiplier)
+    {
+        this.multiplier = multiplier;
+        transform.rotation = new Quaternion(0, 0, 0, 0);
+        this.gameObject.layer = 0;
+        this.gameObject.transform.parent.gameObject.layer = 0;
+
+        md1.material = MeshStore.instance.listOfMaterials[0];
+        md2.material = MeshStore.instance.listOfMaterials[0];
+
+        rb.constraints = RigidbodyConstraints.FreezeRotationY;
+        direction = Direction.custom;
+        this.customPush = customPush;
+    }
 
     public void RockSetup(Direction dir, string layer, float multiplier)
     {
@@ -66,16 +93,19 @@ public class Rock : MonoBehaviour
         switch (direction)
         {
             case Direction.right:
-              rb.AddForce(Vector3.right * this.multiplier * 7.5f);
+              rb.AddForce(7.5f * this.multiplier * Vector3.right);
                 break;
             case Direction.left:
-                rb.AddForce(Vector3.left * this.multiplier * 7.5f);
+                rb.AddForce(7.5f * this.multiplier * Vector3.left);
                 break;
             case Direction.forward:
-                rb.AddForce(Vector3.forward * this.multiplier * 7.5f);
+                rb.AddForce(7.5f * this.multiplier * Vector3.forward);
                 break;
             case Direction.backward:
-                rb.AddForce(Vector3.back * this.multiplier * 7.5f);
+                rb.AddForce(7.5f * this.multiplier * Vector3.back);
+                break;
+            case Direction.custom:
+                rb.AddForce(7.5f * this.multiplier * customPush);
                 break;
         }
     }

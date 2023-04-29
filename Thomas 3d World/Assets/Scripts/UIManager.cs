@@ -6,6 +6,7 @@ using TMPro;
 using System;
 using System.Diagnostics;
 using UnityEngine.SceneManagement;
+using Unity.Jobs;
 
 public class UIManager : MonoBehaviour
 {
@@ -18,8 +19,8 @@ public class UIManager : MonoBehaviour
     public Button finishButton;
 
     [HideInInspector] public int deaths = 0;
-    [HideInInspector] public GameObject[] allCollectibles;
-    [HideInInspector] public List<RawImage> jewelImage = new List<RawImage>();
+    public GameObject[] allCollectibles;
+    public List<RawImage> jewelImage = new List<RawImage>();
 
     float rotate = 0;
     public Stopwatch stopwatch;
@@ -73,14 +74,15 @@ public class UIManager : MonoBehaviour
             $"\n3. Ride in the Dark: {Challenges.instance.levelDeath[2]}" +
             $"\n4. Watch for Rolling Rocks: {Challenges.instance.levelDeath[3]}" +
             $"\n5. Downwards Domino: {Challenges.instance.levelDeath[4]}" +
-            $"\n6. Through the Storm: {Challenges.instance.levelDeath[5]}";
+            $"\n6. Through the Storm: {Challenges.instance.levelDeath[5]}" +
+            $"\n7. Crypt o' Currency: {Challenges.instance.levelDeath[6]}";
     }
 
     private void Update()
     {
         UItext.text = $"Time: {ConvertTimeToString(stopwatch.Elapsed)}" +
         $"\nDeaths: {deaths}" +
-        $"\nJewels" +
+        $"\nJewels:" +
         $"\nJumps: {CalculateJumps()} " +
         $"\nFPS: {CalculateFrames():F2}";
 
