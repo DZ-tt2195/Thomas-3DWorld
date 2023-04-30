@@ -8,7 +8,10 @@ public class CameraManager : MonoBehaviour
 {
     public static CameraManager instance;
     public CinemachineVirtualCamera currentCamera;
+
     TMP_Text chapterName;
+    TMP_Text hint;
+
     public int currentZone;
     int currentPriority;
 
@@ -19,6 +22,7 @@ public class CameraManager : MonoBehaviour
             instance = this;
         }
         chapterName = GameObject.Find("Chapter Name").GetComponent<TMP_Text>();
+        hint = GameObject.Find("HintText").GetComponent<TMP_Text>();
     }
 
     private void Start()
@@ -36,12 +40,17 @@ public class CameraManager : MonoBehaviour
         if (chapterName.text != nextChapter)
         {
             chapterName.text = nextChapter;
-            StopCoroutine(MoveChapter());
+            StopAllCoroutines();
             StartCoroutine(MoveChapter());
         }
     }
 
-    IEnumerator MoveChapter()
+    public void HintUpdate(string hint)
+    {
+        this.hint.text = hint;
+    }
+
+    public IEnumerator MoveChapter()
     {
         int currPosition = 600;
         for (int i = 0; i<25; i++)

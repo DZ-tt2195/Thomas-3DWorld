@@ -280,6 +280,7 @@ namespace StarterAssets
                 }
                 jewelsInStorage.Clear();
 
+                FinalBoss.instance.Restart();
                 this.transform.position = CheckpointManager.instance.transform.position;
                 for (int j = 0; j < allTraps.Length; j++)
                     allTraps[j].Reset();
@@ -329,6 +330,11 @@ namespace StarterAssets
                     CheckpointManager.instance.NewCheckpoint(other.gameObject);
                     if (!Challenges.instance.oneLife)
                         jewelsInStorage.Clear();
+                }
+
+                else if (other.CompareTag("BossSwitch"))
+                {
+                    other.gameObject.SetActive(false);
                 }
 
                 else if (other.CompareTag("Jewel"))
