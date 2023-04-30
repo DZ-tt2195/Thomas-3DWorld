@@ -81,7 +81,7 @@ public class Rock : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Rock"))
+        if (other.CompareTag("Rock") && other.name != this.name)
         {
             Destroy(this.gameObject.transform.parent.gameObject);
         }
