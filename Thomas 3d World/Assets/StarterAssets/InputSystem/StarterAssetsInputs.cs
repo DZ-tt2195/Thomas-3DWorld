@@ -77,7 +77,6 @@ namespace StarterAssets
 
 		public void RestartInput(bool newRestartState)
 		{
-			Challenges.instance.deathCount[^1]++;
 			Challenges.instance.levelDeath[CameraManager.instance.currentZone]++;
 			restart = newRestartState;
 		}

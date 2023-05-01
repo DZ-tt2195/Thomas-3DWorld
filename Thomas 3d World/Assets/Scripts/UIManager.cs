@@ -14,8 +14,7 @@ public class UIManager : MonoBehaviour
 
     public TMP_Text UItext;
     public GameObject finished;
-    public TMP_Text deathsByType;
-    public TMP_Text deathsByLevel;
+    public TMP_Text dataByLevel;
     public Button finishButton;
 
     [HideInInspector] public int deaths = 0;
@@ -61,29 +60,22 @@ public class UIManager : MonoBehaviour
     public void Finished()
     {
         finished.SetActive(true);
-        deathsByType.text = $"Deaths by type:" +
-            $"\nFalling: {Challenges.instance.deathCount[0]}" +
-            $"\nSpikes: {Challenges.instance.deathCount[1]}" +
-            $"\nRocks: {Challenges.instance.deathCount[2]}" +
-            $"\nEnemies: {Challenges.instance.deathCount[3]}" +
-            $"\nRestarts: {Challenges.instance.deathCount[4]}";
-
-        deathsByLevel.text = $"Deaths by level:" +
-            $"\n1. Breaking In: {Challenges.instance.levelDeath[0]}" +
-            $"\n2. Inside the Temple Walls: {Challenges.instance.levelDeath[1]}" +
-            $"\n3. Ride in the Dark: {Challenges.instance.levelDeath[2]}" +
-            $"\n4. Watch for Rolling Rocks: {Challenges.instance.levelDeath[3]}" +
-            $"\n5. Downwards Domino: {Challenges.instance.levelDeath[4]}" +
-            $"\n6. Through the Storm: {Challenges.instance.levelDeath[5]}" +
-            $"\n7. Crypt o' Currency: {Challenges.instance.levelDeath[6]}";
+        dataByLevel.text = $"Deaths / Time by level:" +
+        $"\n1. Breaking In: {Challenges.instance.levelDeath[0]} / {ConvertToLevelTime(0)}" +
+        $"\n2. Inside the Temple Walls: {Challenges.instance.levelDeath[1]} / {ConvertToLevelTime(1)}" +
+        $"\n3. Ride in the Dark: {Challenges.instance.levelDeath[2]} / {ConvertToLevelTime(2)}" +
+        $"\n4. Watch for Rolling Rocks: {Challenges.instance.levelDeath[3]} / {ConvertToLevelTime(3)}" +
+        $"\n5. Downwards Domino: {Challenges.instance.levelDeath[4]} / {ConvertToLevelTime(4)}" +
+        $"\n6. Through the Storm: {Challenges.instance.levelDeath[5]} / {ConvertToLevelTime(5)}" +
+        $"\n7. Crypt o' Currency: {Challenges.instance.levelDeath[6]} / {ConvertToLevelTime(6)}";
     }
 
     private void Update()
     {
         UItext.text = $"Time: {ConvertTimeToString(stopwatch.Elapsed)}" +
-        $"\nDeaths: {deaths}" +
-        $"\nJewels:" +
         $"\nJumps: {CalculateJumps()} " +
+        $"\nJewels:" +
+        $"\nDeaths: {deaths}" +
         $"\nFPS: {CalculateFrames():F2}";
 
         rotate += (UnityEngine.Random.Range(0, 1) == 0) ? 5 : -5;
@@ -94,10 +86,23 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    string ConvertTimeToString(TimeSpan x)
+    public string ConvertToLevelTime(int n)
     {
-        string part = x.Seconds < 10 ? $"0{x.Seconds}" : $"{x.Seconds}";
-        return $"{x.Minutes}:" + part;
+        return ConvertTimeToString(CameraManager.instance.timePerLevel[n].Elapsed);
+    }
+
+    public string ConvertTimeToString(TimeSpan x)
+    {
+        string part1 = x.Seconds < 10 ? $"0{x.Seconds}" : $"{x.Seconds}";
+        string part2 = "";
+        if (x.Milliseconds < 10)
+            part2 = $"00{x.Milliseconds}";
+        else if (x.Milliseconds < 100)
+            part2 = $"0{x.Milliseconds}";
+        else
+            part2 = x.Milliseconds.ToString();
+
+        return $"{x.Minutes}:{part1}.{part2}";
     }
 
     string CalculateJumps()

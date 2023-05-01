@@ -40,8 +40,8 @@ public class AchievementManager : MonoBehaviour
     [Tooltip("Collect all the jewels with all challenges on")]
     public bool impossiblePlusJewels;
  
-    [Tooltip("Beat the game in under 30 seconds")]
-    public bool impossiblePlusJewels;
+    [Tooltip("Beat the game in under 50 seconds")]
+    public bool speedrun;
 */
 
     private void Awake()
@@ -104,7 +104,7 @@ public class AchievementManager : MonoBehaviour
             }
             UnityEngine.Debug.Log($"{y.Minutes}:{y.Seconds}");
 
-            if (y.Minutes == 0 && y.Seconds <= 59)
+            if (y.Minutes == 0 && y.Seconds <= 50)
                 completed[10] = true;
         }
     }

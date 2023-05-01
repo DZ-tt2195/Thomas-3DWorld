@@ -77,8 +77,6 @@ public class MainMenu : MonoBehaviour
         Challenges.instance.timed = challenges[1].isOn;
         Challenges.instance.oneLife = challenges[2].isOn;
         Challenges.instance.checkpointLoaded = dropdown.value;
-        for (int i = 0; i<Challenges.instance.deathCount.Length; i++)
-            Challenges.instance.deathCount[i] = 0;
         for (int i = 0; i < Challenges.instance.levelDeath.Length; i++)
             Challenges.instance.levelDeath[i] = 0;
         SceneManager.LoadScene(1);

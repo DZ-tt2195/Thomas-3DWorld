@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 using TMPro;
+using System;
+using System.Diagnostics;
 
 public class CameraManager : MonoBehaviour
 {
@@ -14,6 +16,8 @@ public class CameraManager : MonoBehaviour
 
     public int currentZone;
     int currentPriority;
+
+    public Stopwatch[] timePerLevel = new Stopwatch[7];
 
     private void Awake()
     {
@@ -28,6 +32,8 @@ public class CameraManager : MonoBehaviour
     private void Start()
     {
         currentPriority = currentCamera.Priority;
+        for (int i = 0; i < timePerLevel.Length; i++)
+            timePerLevel[i] = new Stopwatch();
     }
 
     public void NewCamera(CinemachineVirtualCamera newCam, string nextChapter, int currentZone)
@@ -36,6 +42,10 @@ public class CameraManager : MonoBehaviour
         currentPriority++;
         newCam.Priority = currentPriority;
         currentCamera = newCam;
+
+        for (int i = 0; i < timePerLevel.Length; i++)
+            timePerLevel[i].Stop();
+        timePerLevel[currentZone].Start();
 
         if (chapterName.text != nextChapter)
         {

@@ -33,7 +33,7 @@ public class CheckpointManager : MonoBehaviour
             Challenges.instance.stopwatch.Stop();
         }
 
-        if (lastCheckpoint != x)
+        else if (lastCheckpoint != x)
         {
             if (lastCheckpoint != null)
             {

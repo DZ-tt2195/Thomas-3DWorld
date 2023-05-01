@@ -199,6 +199,9 @@ namespace StarterAssets
             if (Challenges.instance.timed)
                 StartCoroutine(Died(false, true));
 
+            for (int i = 0; i < CameraManager.instance.timePerLevel.Length; i++)
+                CameraManager.instance.timePerLevel[i] = new Stopwatch();
+
             if (Challenges.instance.checkpointLoaded > 0)
             {
                 GameObject x = CheckpointManager.instance.allCheckpoints[Challenges.instance.checkpointLoaded - 1];
@@ -224,7 +227,6 @@ namespace StarterAssets
 
                 if (Challenges.instance.timed && Challenges.instance.stopwatch.Elapsed.Seconds >= 15)
                 {
-                    Challenges.instance.deathCount[3]++;
                     Challenges.instance.levelDeath[CameraManager.instance.currentZone]++;
                     StartCoroutine(Died(true, false));
                 }
@@ -262,6 +264,9 @@ namespace StarterAssets
                 UIManager.instance.deaths++;
                 if (Challenges.instance.oneLife)
                 {
+                    for (int i = 0; i < CameraManager.instance.timePerLevel.Length; i++)
+                        CameraManager.instance.timePerLevel[i] = new Stopwatch();
+
                     CheckpointManager.instance.NewCheckpoint(null);
                     UIManager.instance.stopwatch.Restart();
 
@@ -298,12 +303,10 @@ namespace StarterAssets
                 {
                     if (other.gameObject.name == "Death Floor")
                     {
-                        Challenges.instance.deathCount[0]++;
                         StartCoroutine(Died(true, true));
                     }
                     else
                     {
-                        Challenges.instance.deathCount[2]++;
                         StartCoroutine(Died(true, false));
                     }
                     Challenges.instance.levelDeath[CameraManager.instance.currentZone]++;
@@ -311,14 +314,12 @@ namespace StarterAssets
 
                 else if (other.CompareTag("Spike"))
                 {
-                    Challenges.instance.deathCount[1]++;
                     Challenges.instance.levelDeath[CameraManager.instance.currentZone]++;
                     StartCoroutine(Died(true, false));
                 }
 
                 else if (other.CompareTag("Knight"))
                 {
-                    Challenges.instance.deathCount[3]++;
                     Challenges.instance.levelDeath[CameraManager.instance.currentZone]++;
                     StartCoroutine(Died(true, false));
                 }
@@ -328,6 +329,7 @@ namespace StarterAssets
                     SetToColor(0);
                     this.gameObject.layer = 7;
                     CheckpointManager.instance.NewCheckpoint(other.gameObject);
+
                     if (!Challenges.instance.oneLife)
                         jewelsInStorage.Clear();
                 }
