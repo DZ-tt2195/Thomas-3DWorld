@@ -22,6 +22,7 @@ namespace StarterAssets
 #endif
     public class ThirdPersonController : MonoBehaviour
     {
+        public static ThirdPersonController instance;
         public List<GameObject> renderers = new List<GameObject>();
         public List<Image> UIboxes = new List<Image>();
         List<GameObject> jewelsInStorage = new List<GameObject>();
@@ -141,6 +142,7 @@ namespace StarterAssets
 
         private void Awake()
         {
+            instance = this;
             _hasAnimator = TryGetComponent(out _animator);
             _controller = GetComponent<CharacterController>();
             _input = GetComponent<StarterAssetsInputs>();

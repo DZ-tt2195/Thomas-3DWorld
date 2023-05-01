@@ -48,7 +48,7 @@ namespace StarterAssets
 
 		public void OnJump(InputValue value)
 		{
-			if (Challenges.instance.jumpsLeft > 0)
+			if (Challenges.instance.jumpsLeft > 0 && ThirdPersonController.instance.Grounded)
 			{
 				Challenges.instance.jumpsLeft--;
 				JumpInput(value.isPressed);
