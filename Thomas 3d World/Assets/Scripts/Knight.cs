@@ -20,13 +20,13 @@ public class Knight : MonoBehaviour
         switch (gameObject.layer)
         {
             case 0: //default
-                md.material = MeshStore.instance.listOfMaterials[0];
+                md.material = MeshStore.instance.fancyMaterials[2];
                 break;
             case 3: //blue
-                md.material = MeshStore.instance.listOfMaterials[1];
+                md.material = MeshStore.instance.fancyMaterials[0];
                 break;
             case 6: //yellow
-                md.material = MeshStore.instance.listOfMaterials[2];
+                md.material = MeshStore.instance.fancyMaterials[1];
                 break;
         }
     }

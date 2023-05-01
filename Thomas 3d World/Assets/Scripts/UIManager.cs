@@ -66,7 +66,7 @@ public class UIManager : MonoBehaviour
         $"\n3. Ride in the Dark: {Challenges.instance.levelDeath[2]} / {ConvertToLevelTime(2)}" +
         $"\n4. Watch for Rolling Rocks: {Challenges.instance.levelDeath[3]} / {ConvertToLevelTime(3)}" +
         $"\n5. Downwards Domino: {Challenges.instance.levelDeath[4]} / {ConvertToLevelTime(4)}" +
-        $"\n6. Through the Storm: {Challenges.instance.levelDeath[5]} / {ConvertToLevelTime(5)}" +
+        $"\n6. Fight the Movement: {Challenges.instance.levelDeath[5]} / {ConvertToLevelTime(5)}" +
         $"\n7. Crypt o' Currency: {Challenges.instance.levelDeath[6]} / {ConvertToLevelTime(6)}";
     }
 

@@ -15891,7 +15891,7 @@ MonoBehaviour:
       m_Image: {fileID: 0}
     - m_Text: 5. Downwards Domino
       m_Image: {fileID: 0}
-    - m_Text: 6. Through the Storm
+    - m_Text: 6. Fight the Movement
       m_Image: {fileID: 0}
     - m_Text: 7. Crypt o' Currency
       m_Image: {fileID: 0}
@@ -33578,7 +33578,6 @@ MonoBehaviour:
   timed: 0
   oneLife: 0
   checkpointLoaded: 0
-  deathCount: 0000000000000000000000000000000000000000
   levelDeath: 00000000000000000000000000000000000000000000000000000000
 --- !u!4 &1708573793
 Transform:

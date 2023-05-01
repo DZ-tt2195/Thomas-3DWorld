@@ -251,12 +251,9 @@ namespace StarterAssets
                 _animator.SetBool(_animIDDeath, true);
                 yield return new WaitForSeconds(1.3f);
             }
-            _playerInput.enabled = true;
-            SetToColor(0);
-            this.gameObject.layer = 7;
 
+            this.gameObject.layer = 7;
             _animator.SetBool(_animIDDeath, false);
-            dead = false;
 
             Challenges.instance.stopwatch.Restart();
             Challenges.instance.jumpsLeft = Challenges.instance.oneJump ? 1 : 3;
@@ -287,6 +284,7 @@ namespace StarterAssets
                 }
                 jewelsInStorage.Clear();
 
+                SetToColor(0);
                 FinalBoss.instance.Restart();
                 this.transform.position = CheckpointManager.instance.transform.position;
                 for (int j = 0; j < allTraps.Length; j++)
@@ -295,6 +293,8 @@ namespace StarterAssets
                     allMovers[j].Reset();
                 yield return new WaitForSeconds(0.01f);
             }
+            dead = false;
+            _playerInput.enabled = true;
         }
 
         public void OnTriggerEnter(Collider other)
