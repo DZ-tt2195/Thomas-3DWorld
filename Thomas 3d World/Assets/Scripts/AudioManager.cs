@@ -25,4 +25,9 @@ public class AudioManager : MonoBehaviour
     {
         audioPlayer.PlayOneShot(audio, volume);
     }
+
+    public void StopSounds()
+    {
+        audioPlayer.Stop();
+    }
 }

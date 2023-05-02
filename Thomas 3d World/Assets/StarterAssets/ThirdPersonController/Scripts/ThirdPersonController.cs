@@ -140,6 +140,9 @@ namespace StarterAssets
         Trapdoor[] allTraps;
         MovingSpike[] allMovers;
 
+        public AudioClip jewel;
+        public AudioClip bossSwitch;
+
         private void Awake()
         {
             instance = this;
@@ -249,7 +252,7 @@ namespace StarterAssets
             if (!deathFloor)
             {
                 _animator.SetBool(_animIDDeath, true);
-                yield return new WaitForSeconds(1.3f);
+                yield return new WaitForSeconds(0.8f);
             }
 
             this.gameObject.layer = 7;
@@ -339,6 +342,7 @@ namespace StarterAssets
                 else if (other.CompareTag("BossSwitch"))
                 {
                     other.gameObject.SetActive(false);
+                    AudioManager.instance.PlaySound(bossSwitch, 0.5f);
                 }
 
                 else if (other.CompareTag("Jewel"))
@@ -346,6 +350,7 @@ namespace StarterAssets
                     other.gameObject.SetActive(false);
                     jewelsInStorage.Add(other.gameObject);
                     UIManager.instance.EnableJewel(other.name);
+                    AudioManager.instance.PlaySound(jewel, 0.5f);
                 }
 
                 else if (other.CompareTag("Color Capsule"))

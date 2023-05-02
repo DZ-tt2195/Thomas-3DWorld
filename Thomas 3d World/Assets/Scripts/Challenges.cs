@@ -17,11 +17,14 @@ public class Challenges : MonoBehaviour
 
     public bool timed;
     public Stopwatch stopwatch;
+    public AudioClip timer;
+    bool timerPlaying;
 
     public bool oneLife;
     public int checkpointLoaded;
 
     public int[] levelDeath = new int[7];
+
 
     private void Awake()
     {
@@ -65,12 +68,21 @@ public class Challenges : MonoBehaviour
             {
                 challengeText.transform.parent.gameObject.SetActive(true);
                 challengeText.text += $"-One Jump Challenge\n";
+
             }
             if (timed)
             {
                 challengeText.transform.parent.gameObject.SetActive(true);
                 challengeText.text += $"-15sec Timer Challenge\n" +
                     $"({CalculateTime()} seconds)\n";
+
+                if (CalculateTime() == 5 && !timerPlaying)
+                {
+                    timerPlaying = true;
+                    AudioManager.instance.PlaySound(timer, 0.5f);
+                }
+                else if (CalculateTime() > 5)
+                    timerPlaying = false;
             }
             if (oneLife)
             {

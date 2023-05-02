@@ -23776,7 +23776,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Path: {fileID: 2118131573}
-  m_PathPosition: 1
+  m_PathPosition: 0.6757121
   m_PositionUnits: 0
   m_PathOffset: {x: -1, y: 3, z: -8.5}
   m_XDamping: 0
@@ -33717,6 +33717,7 @@ MonoBehaviour:
   oneJump: 0
   jumpsLeft: 1
   timed: 0
+  timer: {fileID: 8300000, guid: 4078c19f3e00e4750958c91847e7ef2f, type: 3}
   oneLife: 0
   checkpointLoaded: 0
   levelDeath: 00000000000000000000000000000000000000000000000000000000
