@@ -15,6 +15,8 @@ public class FinalBoss : MonoBehaviour
 
     public GameObject rockclone;
     public float delay;
+    public AudioClip cannonShot;
+    public AudioClip powerDown;
     Transform storage;
 
     private void Awake()
@@ -35,6 +37,9 @@ public class FinalBoss : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         if (!chestUnlocked)
         {
+            if (CameraManager.instance.currentZone == 6)
+                AudioManager.instance.PlaySound(cannonShot, 0.1f);
+
             GameObject newRock = Instantiate(rockclone);
             newRock.transform.position = this.transform.position;
             newRock.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
@@ -61,6 +66,7 @@ public class FinalBoss : MonoBehaviour
 
     IEnumerator ChestIsHere()
     {
+        AudioManager.instance.PlaySound(powerDown, 0.5f);
         for (int i = 0; i<200; i++)
         {
             chestPlatform.transform.Translate(0, -0.05f, 0);
