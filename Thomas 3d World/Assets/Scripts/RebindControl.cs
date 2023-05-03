@@ -29,6 +29,7 @@ public class RebindControl : MonoBehaviour
 
     public void StartRebinding()
     {
+        MainMenu.instance.PlayMenu();
         bindingtext.text = "Enter Input";
 
         rebindingOperation = action.action.PerformInteractiveRebinding()

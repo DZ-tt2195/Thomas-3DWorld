@@ -6,10 +6,8 @@ using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
-using TMPro;
 using System;
 using System.Diagnostics;
-using UnityEngine.Rendering;
 
 /* Note: animations are called via the controller for both the character and capsule using animator null checks
  */
@@ -141,6 +139,7 @@ namespace StarterAssets
         MovingSpike[] allMovers;
 
         public AudioClip jewel;
+        public AudioClip changeColor;
         public AudioClip bossSwitch;
 
         private void Awake()
@@ -355,6 +354,7 @@ namespace StarterAssets
 
                 else if (other.CompareTag("Color Capsule"))
                 {
+                    AudioManager.instance.PlaySound(changeColor, 0.5f);
                     this.gameObject.layer = other.gameObject.layer;
                     switch (gameObject.layer)
                     {
@@ -610,7 +610,7 @@ namespace StarterAssets
                 if (FootstepAudioClips.Length > 0)
                 {
                     var index = UnityEngine.Random.Range(0, FootstepAudioClips.Length);
-                    AudioSource.PlayClipAtPoint(FootstepAudioClips[index], transform.TransformPoint(_controller.center), FootstepAudioVolume);
+                    AudioManager.instance.PlaySound(FootstepAudioClips[index], 0.1f);
                 }
             }
         }
@@ -619,7 +619,7 @@ namespace StarterAssets
         {
             if (animationEvent.animatorClipInfo.weight > 0.5f)
             {
-                AudioSource.PlayClipAtPoint(LandingAudioClip, transform.TransformPoint(_controller.center), FootstepAudioVolume);
+                AudioManager.instance.PlaySound(LandingAudioClip, 0.1f);
             }
         }
     }

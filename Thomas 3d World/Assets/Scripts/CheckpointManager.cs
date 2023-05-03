@@ -14,6 +14,7 @@ public class CheckpointManager : MonoBehaviour
     public GameObject lastCheckpoint;
     float rotate = 0;
     public List<GameObject> allCheckpoints = new List<GameObject>();
+    public AudioClip checkpointSound;
 
     void Awake()
     {
@@ -27,6 +28,7 @@ public class CheckpointManager : MonoBehaviour
     {
         if (x != null && x.transform.parent.name == "END")
         {
+            AudioManager.instance.PlaySound(checkpointSound, 0.5f);
             AchievementManager.instance.CheckForAchievements(UIManager.instance.stopwatch.Elapsed);
             UIManager.instance.Finished();
             UIManager.instance.stopwatch.Stop();
@@ -47,6 +49,7 @@ public class CheckpointManager : MonoBehaviour
             if (lastCheckpoint != null && !Challenges.instance.oneLife)
                 this.transform.position = new Vector3(x.transform.position.x, x.transform.position.y, x.transform.position.z);
 
+            AudioManager.instance.PlaySound(checkpointSound, 0.5f);
             Challenges.instance.stopwatch.Restart();
             Challenges.instance.jumpsLeft = Challenges.instance.oneJump ? 1 : 3;
         }

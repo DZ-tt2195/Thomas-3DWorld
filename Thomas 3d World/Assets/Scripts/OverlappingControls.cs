@@ -11,6 +11,8 @@ public class OverlappingControls : MonoBehaviour
     public TMP_Text error;
     string collision;
 
+    public AudioClip errorSound;
+
     private void Awake()
     {
         if (instance == null)
@@ -28,9 +30,15 @@ public class OverlappingControls : MonoBehaviour
     {
         CheckForErrors();
         if (collision == "")
+        {
+            MainMenu.instance.PlayMenu();
             error.text = "";
+        }
         else
+        {
             error.text = $"Warning: Your {collision} key is being used multiple times. \nGame may be buggy as a result.";
+            AudioManager.instance.PlaySound(errorSound, 0.5f);
+        }
     }
 
     void CheckForErrors()
