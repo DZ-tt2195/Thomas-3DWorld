@@ -141,6 +141,7 @@ namespace StarterAssets
         public AudioClip jewel;
         public AudioClip changeColor;
         public AudioClip bossSwitch;
+        public AudioClip deathSound;
 
         private void Awake()
         {
@@ -248,10 +249,13 @@ namespace StarterAssets
             dead = true;
             _playerInput.enabled = false;
 
+            if (count)
+                AudioManager.instance.PlaySound(deathSound, 0.3f);
+
             if (!deathFloor)
             {
                 _animator.SetBool(_animIDDeath, true);
-                yield return new WaitForSeconds(0.8f);
+                yield return new WaitForSeconds(0.7f);
             }
 
             this.gameObject.layer = 7;
