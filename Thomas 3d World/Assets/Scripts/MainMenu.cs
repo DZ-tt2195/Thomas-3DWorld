@@ -58,6 +58,7 @@ public class MainMenu : MonoBehaviour
 
     public void AchievementWarning()
     {
+        AudioManager.instance.PlaySound(menuSound, 0.5f);
         WarningText.SetActive(dropdown.value != 0);
     }
 
