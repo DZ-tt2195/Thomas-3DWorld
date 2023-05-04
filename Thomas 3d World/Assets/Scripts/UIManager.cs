@@ -60,6 +60,7 @@ public class UIManager : MonoBehaviour
     public void Finished()
     {
         finished.SetActive(true);
+        CameraManager.instance.HintUpdate("");
         dataByLevel.text = $"Deaths / Time by level:" +
         $"\n1. Breaking In: {Challenges.instance.levelDeath[0]} / {ConvertToLevelTime(0)}" +
         $"\n2. Inside the Temple Walls: {Challenges.instance.levelDeath[1]} / {ConvertToLevelTime(1)}" +

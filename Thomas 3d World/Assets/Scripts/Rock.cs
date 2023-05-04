@@ -30,8 +30,8 @@ public class Rock : MonoBehaviour
         this.gameObject.layer = 0;
         this.gameObject.transform.parent.gameObject.layer = 0;
 
-        md1.material = MeshStore.instance.listOfMaterials[0];
-        md2.material = MeshStore.instance.listOfMaterials[0];
+        md1.material = MeshStore.instance.fancyMaterials[2];
+        md2.material = MeshStore.instance.fancyMaterials[2];
 
         rb.constraints = RigidbodyConstraints.FreezeRotationY;
         direction = Direction.custom;
@@ -48,17 +48,13 @@ public class Rock : MonoBehaviour
 
         switch (gameObject.layer)
         {
-            case 0: //default
-                md1.material = MeshStore.instance.listOfMaterials[0];
-                md2.material = MeshStore.instance.listOfMaterials[0];
-                break;
             case 3: //orange
-                md1.material = MeshStore.instance.listOfMaterials[1];
-                md2.material = MeshStore.instance.listOfMaterials[1];
+                md1.material = MeshStore.instance.fancyMaterials[0];
+                md2.material = MeshStore.instance.fancyMaterials[0];
                 break;
             case 6: //blue
-                md1.material = MeshStore.instance.listOfMaterials[2];
-                md2.material = MeshStore.instance.listOfMaterials[2];
+                md1.material = MeshStore.instance.fancyMaterials[1];
+                md2.material = MeshStore.instance.fancyMaterials[1];
                 break;
         }
 

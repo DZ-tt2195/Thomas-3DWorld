@@ -5,28 +5,35 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 using MyBox;
+using UnityEngine.Audio;
 
 public class MainMenu : MonoBehaviour
 {
     public static MainMenu instance;
-    public List<Toggle> challenges = new List<Toggle>();
-    public List<Toggle> completed = new List<Toggle>();
     public AudioClip menuSound;
-
-    [Foldout("Other Menus", true)]
-    public GameObject controlImage;
-    public GameObject challengeImage;
-    public GameObject achievementImage;
-    public Button closeButton;
-    public Button controlButton;
-    public Button challengeButton;
-    public Button achievementButton;
-    public Toggle fullScreen;
 
     [Foldout("Main Menu", true)]
     public Button playGame;
     public TMP_Dropdown dropdown;
     public GameObject WarningText;
+
+    [Foldout("Buttons", true)]
+    public Button quitButton;
+    public Button closeButton;
+    public Button controlButton;
+    public Button challengeButton;
+    public Button achievementButton;
+
+    [Foldout("Other Menus", true)]
+    public GameObject controlImage;
+    public GameObject challengeImage;
+    public GameObject achievementImage;
+
+    [Foldout("Settings", true)]
+    public List<Toggle> challenges = new List<Toggle>();
+    public List<Toggle> completed = new List<Toggle>();
+    public Toggle fullScreen;
+    public Slider soundLoudness;
 
     private void Awake()
     {
@@ -55,6 +62,12 @@ public class MainMenu : MonoBehaviour
 
         fullScreen.isOn = Screen.fullScreen;
         fullScreen.onValueChanged.AddListener(delegate { WindowMode(); });
+
+        soundLoudness.value = PlayerPrefs.GetFloat("Volume");
+        soundLoudness.onValueChanged.AddListener(delegate { SetLevel(); });
+        SetLevel();
+
+        quitButton.onClick.AddListener(QuitGame);
     }
 
     public void PlayMenu()
@@ -123,5 +136,19 @@ public class MainMenu : MonoBehaviour
     public void WindowMode()
     {
         Screen.fullScreenMode = (fullScreen.isOn) ? FullScreenMode.ExclusiveFullScreen : FullScreenMode.Windowed;
+    }
+
+    public void SetLevel()
+    {
+        AudioManager.instance.mixer.SetFloat("Volume", (Mathf.Log10(soundLoudness.value) * 20));
+        PlayerPrefs.SetFloat("Volume", soundLoudness.value);
+    }
+
+    public void QuitGame()
+    {
+    #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+    #endif
+            Application.Quit();
     }
 }
