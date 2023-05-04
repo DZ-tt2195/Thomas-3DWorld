@@ -4,27 +4,29 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using MyBox;
 
 public class MainMenu : MonoBehaviour
 {
     public static MainMenu instance;
     public List<Toggle> challenges = new List<Toggle>();
     public List<Toggle> completed = new List<Toggle>();
+    public AudioClip menuSound;
 
+    [Foldout("Other Menus", true)]
     public GameObject controlImage;
     public GameObject challengeImage;
     public GameObject achievementImage;
     public Button closeButton;
-
-    public Button playGame;
-    public TMP_Dropdown dropdown;
-    public GameObject WarningText;
-
     public Button controlButton;
     public Button challengeButton;
     public Button achievementButton;
+    public Toggle fullScreen;
 
-    public AudioClip menuSound;
+    [Foldout("Main Menu", true)]
+    public Button playGame;
+    public TMP_Dropdown dropdown;
+    public GameObject WarningText;
 
     private void Awake()
     {
@@ -35,6 +37,7 @@ public class MainMenu : MonoBehaviour
     {
         playGame.onClick.AddListener(SendData);
         closeButton.onClick.AddListener(CloseMenus);
+        CloseMenus();
 
         controlButton.onClick.AddListener(ControlMenu);
         controlImage.SetActive(false);
@@ -49,6 +52,9 @@ public class MainMenu : MonoBehaviour
         {
             challenges[i].onValueChanged.AddListener(delegate { PlayMenu(); });
         }
+
+        fullScreen.isOn = Screen.fullScreen;
+        fullScreen.onValueChanged.AddListener(delegate { WindowMode(); });
     }
 
     public void PlayMenu()
@@ -112,5 +118,10 @@ public class MainMenu : MonoBehaviour
         for (int i = 0; i < AchievementManager.instance.completed.Length; i++)
             AchievementManager.instance.completed[i] = false;
         AchievementMenu();
+    }
+
+    public void WindowMode()
+    {
+        Screen.fullScreenMode = (fullScreen.isOn) ? FullScreenMode.ExclusiveFullScreen : FullScreenMode.Windowed;
     }
 }

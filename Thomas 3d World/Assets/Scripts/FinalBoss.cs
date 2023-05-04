@@ -78,7 +78,6 @@ public class FinalBoss : MonoBehaviour
     public void Restart()
     {
         StopAllCoroutines();
-        AudioManager.instance.StopSounds();
         chestPlatform.transform.localPosition = new Vector3(-17, 35, 21);
         chestLid.transform.localEulerAngles = new Vector3(0, 0, -130);
         chestUnlocked = false;

@@ -248,9 +248,10 @@ namespace StarterAssets
         {
             dead = true;
             _playerInput.enabled = false;
+            AudioManager.instance.StopSounds();
 
             if (count)
-                AudioManager.instance.PlaySound(deathSound, 0.3f);
+                AudioManager.instance.PlaySound(deathSound, 0.4f);
 
             if (!deathFloor)
             {
@@ -340,6 +341,9 @@ namespace StarterAssets
 
                     if (!Challenges.instance.oneLife)
                         jewelsInStorage.Clear();
+
+                    if (other.transform.parent.name == "END")
+                        _playerInput.enabled = false;
                 }
 
                 else if (other.CompareTag("BossSwitch"))
