@@ -210,7 +210,8 @@ namespace StarterAssets
             if (Challenges.instance.checkpointLoaded > 0)
             {
                 GameObject x = CheckpointManager.instance.allCheckpoints[Challenges.instance.checkpointLoaded - 1];
-                CheckpointManager.instance.transform.position = new Vector3(x.transform.position.x, x.transform.position.y, x.transform.position.z);
+                CheckpointManager.instance.transform.position =
+                new Vector3(x.transform.position.x, x.transform.position.y + 3, x.transform.position.z);
                 StartCoroutine(Died(false, true));
             }
         }
