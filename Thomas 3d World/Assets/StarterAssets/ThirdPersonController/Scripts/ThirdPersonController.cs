@@ -138,6 +138,7 @@ namespace StarterAssets
         Trapdoor[] allTraps;
         MovingSpike[] allMovers;
 
+        public AudioClip jumpSound;
         public AudioClip jewel;
         public AudioClip changeColor;
         public AudioClip bossSwitch;
@@ -252,7 +253,7 @@ namespace StarterAssets
             AudioManager.instance.StopSounds();
 
             if (count)
-                AudioManager.instance.PlaySound(deathSound, 0.4f);
+                AudioManager.instance.PlaySound(deathSound, 0.5f);
 
             if (!deathFloor)
             {
@@ -549,6 +550,7 @@ namespace StarterAssets
                     // update animator if using character
                     if (_hasAnimator)
                     {
+                        AudioManager.instance.PlaySound(jumpSound, 0.3f);
                         _animator.SetBool(_animIDJump, true);
                     }
                 }
