@@ -10,19 +10,16 @@ public class FinalBoss : MonoBehaviour
     public GameObject knights;
     public Transform chestLid;
     GameObject chestPlatform;
-    RockGenerator rg;
     bool chestUnlocked = false;
 
     public GameObject rockclone;
     public float delay;
-    public AudioClip cannonShot;
     public AudioClip powerDown;
     Transform storage;
 
     private void Awake()
     {
         instance = this;
-        rg = GetComponent<RockGenerator>();
         chestPlatform = GameObject.Find("Chest Platform").gameObject;
         storage = GameObject.Find("Where Rocks Go").transform;
     }
@@ -38,7 +35,7 @@ public class FinalBoss : MonoBehaviour
         if (!chestUnlocked)
         {
             if (CameraManager.instance.currentZone == 6)
-                AudioManager.instance.PlaySound(cannonShot, 0.1f);
+                AudioManager.instance.PlaySound(AudioManager.instance.rock, 0.1f);
 
             GameObject newRock = Instantiate(rockclone);
             newRock.transform.position = this.transform.position;

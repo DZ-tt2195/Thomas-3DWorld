@@ -6,6 +6,7 @@ using UnityEngine.Audio;
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
+    public AudioClip rock;
     AudioSource audioPlayer;
     public AudioMixer mixer;
 
@@ -21,6 +22,11 @@ public class AudioManager : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+    }
+
+    private void Start()
+    {
+        audioPlayer.Play();
     }
 
     public void PlaySound(AudioClip audio, float volume)

@@ -138,6 +138,9 @@ namespace StarterAssets
         Trapdoor[] allTraps;
         MovingSpike[] allMovers;
 
+        public ParticleSystem blueParticles;
+        public ParticleSystem yellowParticles;
+
         public AudioClip jumpSound;
         public AudioClip jewel;
         public AudioClip changeColor;
@@ -169,6 +172,17 @@ namespace StarterAssets
 
         public void SetToColor(int n)
         {
+            if (n == 1)
+            {
+                blueParticles.Clear();
+                blueParticles.Play();
+            }
+            else if (n == 2)
+            {
+                yellowParticles.Clear();
+                yellowParticles.Play();
+            }
+
             for (int i = 0; i<renderers.Count; i++)
             {
                 if (i == n)
@@ -179,7 +193,6 @@ namespace StarterAssets
 
             for (int i = 0; i<UIboxes.Count; i++)
             {
-
                 if (n == 0)
                     UIboxes[i].color = new Color(0, 0, 0, 0.5f);
                 else if (n == 1)
@@ -213,8 +226,8 @@ namespace StarterAssets
                 GameObject x = CheckpointManager.instance.allCheckpoints[Challenges.instance.checkpointLoaded - 1];
                 CheckpointManager.instance.transform.position =
                 new Vector3(x.transform.position.x, x.transform.position.y + 3, x.transform.position.z);
-                StartCoroutine(Died(false, true));
             }
+            StartCoroutine(Died(false, true));
         }
 
         private void Update()
@@ -250,10 +263,10 @@ namespace StarterAssets
         {
             dead = true;
             _playerInput.enabled = false;
-            AudioManager.instance.StopSounds();
+            //AudioManager.instance.StopSounds();
 
             if (count)
-                AudioManager.instance.PlaySound(deathSound, 0.5f);
+                AudioManager.instance.PlaySound(deathSound, 0.4f);
 
             if (!deathFloor)
             {
@@ -351,7 +364,7 @@ namespace StarterAssets
                 else if (other.CompareTag("BossSwitch"))
                 {
                     other.gameObject.SetActive(false);
-                    AudioManager.instance.PlaySound(bossSwitch, 0.5f);
+                    AudioManager.instance.PlaySound(bossSwitch, 0.4f);
                 }
 
                 else if (other.CompareTag("Jewel"))
@@ -359,12 +372,12 @@ namespace StarterAssets
                     other.gameObject.SetActive(false);
                     jewelsInStorage.Add(other.gameObject);
                     UIManager.instance.EnableJewel(other.name);
-                    AudioManager.instance.PlaySound(jewel, 0.5f);
+                    AudioManager.instance.PlaySound(jewel, 0.4f);
                 }
 
                 else if (other.CompareTag("Color Capsule"))
                 {
-                    AudioManager.instance.PlaySound(changeColor, 0.5f);
+                    AudioManager.instance.PlaySound(changeColor, 0.4f);
                     this.gameObject.layer = other.gameObject.layer;
                     switch (gameObject.layer)
                     {
@@ -550,7 +563,7 @@ namespace StarterAssets
                     // update animator if using character
                     if (_hasAnimator)
                     {
-                        AudioManager.instance.PlaySound(jumpSound, 0.3f);
+                        AudioManager.instance.PlaySound(jumpSound, 0.1f);
                         _animator.SetBool(_animIDJump, true);
                     }
                 }

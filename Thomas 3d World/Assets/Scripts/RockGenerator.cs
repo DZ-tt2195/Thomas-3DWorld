@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using MyBox;
 
 public class RockGenerator : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class RockGenerator : MonoBehaviour
     public float rockScale;
     public float delay;
     public float rockSpeed;
+    public bool playsAudio;
+    [ConditionalField(nameof (playsAudio))] public int zone;
     Transform storage;
 
     private void Awake()
@@ -28,6 +31,10 @@ public class RockGenerator : MonoBehaviour
     IEnumerator SpawnRock()
     {
         yield return new WaitForSeconds(0.5f);
+
+        if (playsAudio && zone == CameraManager.instance.currentZone)
+            AudioManager.instance.PlaySound(AudioManager.instance.rock, 0.1f);
+
         GameObject newRock = Instantiate(rockclone);
         newRock.transform.position = this.transform.position;
         newRock.transform.localScale = new Vector3(rockScale, rockScale, rockScale);
