@@ -2,12 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using MyBox;
 
 public class Knight : MonoBehaviour
 {
     public SkinnedMeshRenderer md;
     UnityEngine.AI.NavMeshAgent agent;
     Transform playerPosition;
+
+    public bool playsAudio;
+    [ConditionalField(nameof(playsAudio))] public int zone;
+    [ConditionalField(nameof(playsAudio))] public AudioClip robotSound;
 
     private void Awake()
     {
@@ -29,6 +34,16 @@ public class Knight : MonoBehaviour
                 md.material = MeshStore.instance.fancyMaterials[1];
                 break;
         }
+
+        StartCoroutine(PlaySounds());
+    }
+
+    IEnumerator PlaySounds()
+    {
+        if (playsAudio && CameraManager.instance.currentZone == zone)
+            AudioManager.instance.PlaySound(robotSound, 0.3f);
+        yield return new WaitForSeconds(2.5f);
+        StartCoroutine(PlaySounds());
     }
 
     void Update()
