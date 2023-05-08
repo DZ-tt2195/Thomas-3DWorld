@@ -885,8 +885,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: WASD / Arrow Keys to move around
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 446ca7eb99ddf4cfbb3d1c2c2e6b902e, type: 2}
-  m_sharedMaterial: {fileID: -445594718720520555, guid: 446ca7eb99ddf4cfbb3d1c2c2e6b902e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 35736a6e5416a4662a88b512ec7857e8, type: 2}
+  m_sharedMaterial: {fileID: -5219464763714345369, guid: 35736a6e5416a4662a88b512ec7857e8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1054,7 +1054,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh77180
+  m_Name: pb_Mesh63892
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -1219,7 +1219,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh76660
+  m_Name: pb_Mesh63372
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -1771,7 +1771,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh76470
+  m_Name: pb_Mesh63182
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -1965,7 +1965,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 184.7, y: -0.8}
+  m_AnchoredPosition: {x: 178.1, y: 2.2}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &152583356
@@ -1990,8 +1990,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Fullscreen
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 446ca7eb99ddf4cfbb3d1c2c2e6b902e, type: 2}
-  m_sharedMaterial: {fileID: -445594718720520555, guid: 446ca7eb99ddf4cfbb3d1c2c2e6b902e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 35736a6e5416a4662a88b512ec7857e8, type: 2}
+  m_sharedMaterial: {fileID: -5219464763714345369, guid: 35736a6e5416a4662a88b512ec7857e8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4745,7 +4745,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh77668
+  m_Name: pb_Mesh64380
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -4964,8 +4964,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: What Doesn't Kill Me...
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 446ca7eb99ddf4cfbb3d1c2c2e6b902e, type: 2}
-  m_sharedMaterial: {fileID: -445594718720520555, guid: 446ca7eb99ddf4cfbb3d1c2c2e6b902e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 35736a6e5416a4662a88b512ec7857e8, type: 2}
+  m_sharedMaterial: {fileID: -5219464763714345369, guid: 35736a6e5416a4662a88b512ec7857e8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5304,8 +5304,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Makes Me Stronger
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 446ca7eb99ddf4cfbb3d1c2c2e6b902e, type: 2}
-  m_sharedMaterial: {fileID: -445594718720520555, guid: 446ca7eb99ddf4cfbb3d1c2c2e6b902e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 35736a6e5416a4662a88b512ec7857e8, type: 2}
+  m_sharedMaterial: {fileID: -5219464763714345369, guid: 35736a6e5416a4662a88b512ec7857e8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -10235,7 +10235,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh76586
+  m_Name: pb_Mesh63298
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -12862,8 +12862,8 @@ MonoBehaviour:
     as you want, at the same time. Achievements will be disabled if you load from
     a checkpoint.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 446ca7eb99ddf4cfbb3d1c2c2e6b902e, type: 2}
-  m_sharedMaterial: {fileID: -445594718720520555, guid: 446ca7eb99ddf4cfbb3d1c2c2e6b902e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 35736a6e5416a4662a88b512ec7857e8, type: 2}
+  m_sharedMaterial: {fileID: -5219464763714345369, guid: 35736a6e5416a4662a88b512ec7857e8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -13319,8 +13319,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Beat the game
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 446ca7eb99ddf4cfbb3d1c2c2e6b902e, type: 2}
-  m_sharedMaterial: {fileID: -445594718720520555, guid: 446ca7eb99ddf4cfbb3d1c2c2e6b902e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 35736a6e5416a4662a88b512ec7857e8, type: 2}
+  m_sharedMaterial: {fileID: -5219464763714345369, guid: 35736a6e5416a4662a88b512ec7857e8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -13540,10 +13540,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: volume
+  m_text: Volume
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 446ca7eb99ddf4cfbb3d1c2c2e6b902e, type: 2}
-  m_sharedMaterial: {fileID: -445594718720520555, guid: 446ca7eb99ddf4cfbb3d1c2c2e6b902e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 35736a6e5416a4662a88b512ec7857e8, type: 2}
+  m_sharedMaterial: {fileID: -5219464763714345369, guid: 35736a6e5416a4662a88b512ec7857e8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -15873,7 +15873,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh77294
+  m_Name: pb_Mesh64006
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -16263,7 +16263,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh77374
+  m_Name: pb_Mesh64086
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -17048,7 +17048,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh77130
+  m_Name: pb_Mesh63842
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -17270,8 +17270,8 @@ MonoBehaviour:
     Game may be buggy
     as a result.'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 446ca7eb99ddf4cfbb3d1c2c2e6b902e, type: 2}
-  m_sharedMaterial: {fileID: -445594718720520555, guid: 446ca7eb99ddf4cfbb3d1c2c2e6b902e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 35736a6e5416a4662a88b512ec7857e8, type: 2}
+  m_sharedMaterial: {fileID: -5219464763714345369, guid: 35736a6e5416a4662a88b512ec7857e8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -17405,8 +17405,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Beat the game in under 50 seconds
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 446ca7eb99ddf4cfbb3d1c2c2e6b902e, type: 2}
-  m_sharedMaterial: {fileID: -445594718720520555, guid: 446ca7eb99ddf4cfbb3d1c2c2e6b902e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 35736a6e5416a4662a88b512ec7857e8, type: 2}
+  m_sharedMaterial: {fileID: -5219464763714345369, guid: 35736a6e5416a4662a88b512ec7857e8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -18288,8 +18288,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: One Life
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 446ca7eb99ddf4cfbb3d1c2c2e6b902e, type: 2}
-  m_sharedMaterial: {fileID: -445594718720520555, guid: 446ca7eb99ddf4cfbb3d1c2c2e6b902e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 35736a6e5416a4662a88b512ec7857e8, type: 2}
+  m_sharedMaterial: {fileID: -5219464763714345369, guid: 35736a6e5416a4662a88b512ec7857e8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -18792,7 +18792,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh77512
+  m_Name: pb_Mesh64224
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -19011,8 +19011,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Get all the jewels
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 446ca7eb99ddf4cfbb3d1c2c2e6b902e, type: 2}
-  m_sharedMaterial: {fileID: -445594718720520555, guid: 446ca7eb99ddf4cfbb3d1c2c2e6b902e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 35736a6e5416a4662a88b512ec7857e8, type: 2}
+  m_sharedMaterial: {fileID: -5219464763714345369, guid: 35736a6e5416a4662a88b512ec7857e8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -19748,7 +19748,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh76354
+  m_Name: pb_Mesh63066
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -20055,8 +20055,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Beat the game with the One Jump Challenge
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 446ca7eb99ddf4cfbb3d1c2c2e6b902e, type: 2}
-  m_sharedMaterial: {fileID: -445594718720520555, guid: 446ca7eb99ddf4cfbb3d1c2c2e6b902e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 35736a6e5416a4662a88b512ec7857e8, type: 2}
+  m_sharedMaterial: {fileID: -5219464763714345369, guid: 35736a6e5416a4662a88b512ec7857e8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -20224,7 +20224,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh77524
+  m_Name: pb_Mesh64236
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -21323,7 +21323,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh77726
+  m_Name: pb_Mesh64438
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -21854,8 +21854,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Get all the jewels with the One Jump Challenge
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 446ca7eb99ddf4cfbb3d1c2c2e6b902e, type: 2}
-  m_sharedMaterial: {fileID: -445594718720520555, guid: 446ca7eb99ddf4cfbb3d1c2c2e6b902e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 35736a6e5416a4662a88b512ec7857e8, type: 2}
+  m_sharedMaterial: {fileID: -5219464763714345369, guid: 35736a6e5416a4662a88b512ec7857e8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -23153,8 +23153,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Come Hell...
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 446ca7eb99ddf4cfbb3d1c2c2e6b902e, type: 2}
-  m_sharedMaterial: {fileID: -445594718720520555, guid: 446ca7eb99ddf4cfbb3d1c2c2e6b902e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 35736a6e5416a4662a88b512ec7857e8, type: 2}
+  m_sharedMaterial: {fileID: -5219464763714345369, guid: 35736a6e5416a4662a88b512ec7857e8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -23311,7 +23311,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh76804
+  m_Name: pb_Mesh63516
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -23505,7 +23505,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 169.2, y: -23.8}
+  m_AnchoredPosition: {x: 161.89996, y: -18.8}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1072228544
@@ -23530,8 +23530,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Only 15 seconds to get to the next checkpoint
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 446ca7eb99ddf4cfbb3d1c2c2e6b902e, type: 2}
-  m_sharedMaterial: {fileID: -445594718720520555, guid: 446ca7eb99ddf4cfbb3d1c2c2e6b902e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 35736a6e5416a4662a88b512ec7857e8, type: 2}
+  m_sharedMaterial: {fileID: -5219464763714345369, guid: 35736a6e5416a4662a88b512ec7857e8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -23818,8 +23818,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Restrictions...
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 446ca7eb99ddf4cfbb3d1c2c2e6b902e, type: 2}
-  m_sharedMaterial: {fileID: -445594718720520555, guid: 446ca7eb99ddf4cfbb3d1c2c2e6b902e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 35736a6e5416a4662a88b512ec7857e8, type: 2}
+  m_sharedMaterial: {fileID: -5219464763714345369, guid: 35736a6e5416a4662a88b512ec7857e8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -23899,7 +23899,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh76908
+  m_Name: pb_Mesh63620
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -24447,8 +24447,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Get all the jewels with all Challenges enabled
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 446ca7eb99ddf4cfbb3d1c2c2e6b902e, type: 2}
-  m_sharedMaterial: {fileID: -445594718720520555, guid: 446ca7eb99ddf4cfbb3d1c2c2e6b902e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 35736a6e5416a4662a88b512ec7857e8, type: 2}
+  m_sharedMaterial: {fileID: -5219464763714345369, guid: 35736a6e5416a4662a88b512ec7857e8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -24582,8 +24582,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Beat the game with the One Life Challenge
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 446ca7eb99ddf4cfbb3d1c2c2e6b902e, type: 2}
-  m_sharedMaterial: {fileID: -445594718720520555, guid: 446ca7eb99ddf4cfbb3d1c2c2e6b902e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 35736a6e5416a4662a88b512ec7857e8, type: 2}
+  m_sharedMaterial: {fileID: -5219464763714345369, guid: 35736a6e5416a4662a88b512ec7857e8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -24913,7 +24913,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh77536
+  m_Name: pb_Mesh64248
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -26591,7 +26591,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh76872
+  m_Name: pb_Mesh63584
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -27761,7 +27761,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 193.7, y: -2.8}
+  m_AnchoredPosition: {x: 186.4, y: 2.2}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1266331324
@@ -27786,8 +27786,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 15sec Timer
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 446ca7eb99ddf4cfbb3d1c2c2e6b902e, type: 2}
-  m_sharedMaterial: {fileID: -445594718720520555, guid: 446ca7eb99ddf4cfbb3d1c2c2e6b902e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 35736a6e5416a4662a88b512ec7857e8, type: 2}
+  m_sharedMaterial: {fileID: -5219464763714345369, guid: 35736a6e5416a4662a88b512ec7857e8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -27921,8 +27921,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Temple Run
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 446ca7eb99ddf4cfbb3d1c2c2e6b902e, type: 2}
-  m_sharedMaterial: {fileID: -445594718720520555, guid: 446ca7eb99ddf4cfbb3d1c2c2e6b902e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 35736a6e5416a4662a88b512ec7857e8, type: 2}
+  m_sharedMaterial: {fileID: -5219464763714345369, guid: 35736a6e5416a4662a88b512ec7857e8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -28002,7 +28002,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh77100
+  m_Name: pb_Mesh63812
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -31403,7 +31403,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh76562
+  m_Name: pb_Mesh63274
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -31781,7 +31781,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh76506
+  m_Name: pb_Mesh63218
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -33282,8 +33282,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: At the Speed of Sound
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 446ca7eb99ddf4cfbb3d1c2c2e6b902e, type: 2}
-  m_sharedMaterial: {fileID: -445594718720520555, guid: 446ca7eb99ddf4cfbb3d1c2c2e6b902e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 35736a6e5416a4662a88b512ec7857e8, type: 2}
+  m_sharedMaterial: {fileID: -5219464763714345369, guid: 35736a6e5416a4662a88b512ec7857e8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -33417,8 +33417,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Rolling Around...
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 446ca7eb99ddf4cfbb3d1c2c2e6b902e, type: 2}
-  m_sharedMaterial: {fileID: -445594718720520555, guid: 446ca7eb99ddf4cfbb3d1c2c2e6b902e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 35736a6e5416a4662a88b512ec7857e8, type: 2}
+  m_sharedMaterial: {fileID: -5219464763714345369, guid: 35736a6e5416a4662a88b512ec7857e8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -34992,8 +34992,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Get all the jewels with the One Life Challenge
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 446ca7eb99ddf4cfbb3d1c2c2e6b902e, type: 2}
-  m_sharedMaterial: {fileID: -445594718720520555, guid: 446ca7eb99ddf4cfbb3d1c2c2e6b902e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 35736a6e5416a4662a88b512ec7857e8, type: 2}
+  m_sharedMaterial: {fileID: -5219464763714345369, guid: 35736a6e5416a4662a88b512ec7857e8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -35514,8 +35514,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Breed Creativity
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 446ca7eb99ddf4cfbb3d1c2c2e6b902e, type: 2}
-  m_sharedMaterial: {fileID: -445594718720520555, guid: 446ca7eb99ddf4cfbb3d1c2c2e6b902e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 35736a6e5416a4662a88b512ec7857e8, type: 2}
+  m_sharedMaterial: {fileID: -5219464763714345369, guid: 35736a6e5416a4662a88b512ec7857e8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -35872,8 +35872,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 144.2, y: -23.8}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 141.6, y: -23.8}
+  m_SizeDelta: {x: 112.9569, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1760668903
 MonoBehaviour:
@@ -35897,8 +35897,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Only 1 jump per checkpoint (instead of 3)
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 446ca7eb99ddf4cfbb3d1c2c2e6b902e, type: 2}
-  m_sharedMaterial: {fileID: -445594718720520555, guid: 446ca7eb99ddf4cfbb3d1c2c2e6b902e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 35736a6e5416a4662a88b512ec7857e8, type: 2}
+  m_sharedMaterial: {fileID: -5219464763714345369, guid: 35736a6e5416a4662a88b512ec7857e8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -36054,7 +36054,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh76680
+  m_Name: pb_Mesh63392
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -41135,8 +41135,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Or High Water
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 446ca7eb99ddf4cfbb3d1c2c2e6b902e, type: 2}
-  m_sharedMaterial: {fileID: -445594718720520555, guid: 446ca7eb99ddf4cfbb3d1c2c2e6b902e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 35736a6e5416a4662a88b512ec7857e8, type: 2}
+  m_sharedMaterial: {fileID: -5219464763714345369, guid: 35736a6e5416a4662a88b512ec7857e8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -41270,8 +41270,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Beat the game with the 15sec Timer Challenge
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 446ca7eb99ddf4cfbb3d1c2c2e6b902e, type: 2}
-  m_sharedMaterial: {fileID: -445594718720520555, guid: 446ca7eb99ddf4cfbb3d1c2c2e6b902e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 35736a6e5416a4662a88b512ec7857e8, type: 2}
+  m_sharedMaterial: {fileID: -5219464763714345369, guid: 35736a6e5416a4662a88b512ec7857e8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -41518,8 +41518,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Beat the game with all Challenges enabled
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 446ca7eb99ddf4cfbb3d1c2c2e6b902e, type: 2}
-  m_sharedMaterial: {fileID: -445594718720520555, guid: 446ca7eb99ddf4cfbb3d1c2c2e6b902e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 35736a6e5416a4662a88b512ec7857e8, type: 2}
+  m_sharedMaterial: {fileID: -5219464763714345369, guid: 35736a6e5416a4662a88b512ec7857e8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -41925,7 +41925,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh76970
+  m_Name: pb_Mesh63682
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -42144,8 +42144,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Good Game...
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 446ca7eb99ddf4cfbb3d1c2c2e6b902e, type: 2}
-  m_sharedMaterial: {fileID: -445594718720520555, guid: 446ca7eb99ddf4cfbb3d1c2c2e6b902e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 35736a6e5416a4662a88b512ec7857e8, type: 2}
+  m_sharedMaterial: {fileID: -5219464763714345369, guid: 35736a6e5416a4662a88b512ec7857e8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -42753,8 +42753,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Well Played
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 446ca7eb99ddf4cfbb3d1c2c2e6b902e, type: 2}
-  m_sharedMaterial: {fileID: -445594718720520555, guid: 446ca7eb99ddf4cfbb3d1c2c2e6b902e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 35736a6e5416a4662a88b512ec7857e8, type: 2}
+  m_sharedMaterial: {fileID: -5219464763714345369, guid: 35736a6e5416a4662a88b512ec7857e8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -43497,7 +43497,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh77680
+  m_Name: pb_Mesh64392
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -43851,8 +43851,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: If you die, you lose all your progress
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 446ca7eb99ddf4cfbb3d1c2c2e6b902e, type: 2}
-  m_sharedMaterial: {fileID: -445594718720520555, guid: 446ca7eb99ddf4cfbb3d1c2c2e6b902e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 35736a6e5416a4662a88b512ec7857e8, type: 2}
+  m_sharedMaterial: {fileID: -5219464763714345369, guid: 35736a6e5416a4662a88b512ec7857e8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -44062,8 +44062,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: One Jump
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 446ca7eb99ddf4cfbb3d1c2c2e6b902e, type: 2}
-  m_sharedMaterial: {fileID: -445594718720520555, guid: 446ca7eb99ddf4cfbb3d1c2c2e6b902e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 35736a6e5416a4662a88b512ec7857e8, type: 2}
+  m_sharedMaterial: {fileID: -5219464763714345369, guid: 35736a6e5416a4662a88b512ec7857e8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -44853,8 +44853,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Get all the jewels with the 15sec Timer Challenge
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 446ca7eb99ddf4cfbb3d1c2c2e6b902e, type: 2}
-  m_sharedMaterial: {fileID: -445594718720520555, guid: 446ca7eb99ddf4cfbb3d1c2c2e6b902e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 35736a6e5416a4662a88b512ec7857e8, type: 2}
+  m_sharedMaterial: {fileID: -5219464763714345369, guid: 35736a6e5416a4662a88b512ec7857e8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -44963,8 +44963,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -10.001699, y: 24.9}
-  m_SizeDelta: {x: -29.9965, y: -13}
+  m_AnchoredPosition: {x: -10, y: 27.1}
+  m_SizeDelta: {x: -30, y: -13}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2071039692
 MonoBehaviour:
@@ -44988,8 +44988,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Load from a checkpoint
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 446ca7eb99ddf4cfbb3d1c2c2e6b902e, type: 2}
-  m_sharedMaterial: {fileID: -445594718720520555, guid: 446ca7eb99ddf4cfbb3d1c2c2e6b902e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 35736a6e5416a4662a88b512ec7857e8, type: 2}
+  m_sharedMaterial: {fileID: -5219464763714345369, guid: 35736a6e5416a4662a88b512ec7857e8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -45013,12 +45013,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 14.9
-  m_fontSizeBase: 14
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 10
-  m_fontSizeMax: 15
+  m_fontSizeMax: 20
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
