@@ -34,7 +34,6 @@ public class UIManager : MonoBehaviour
         {
             instance = this;
         }
-        Application.targetFrameRate = 60;
         allCollectibles = GameObject.FindGameObjectsWithTag("Jewel");
 
         for (int i = 0; i < this.transform.childCount; i++)

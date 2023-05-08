@@ -42,6 +42,8 @@ public class MainMenu : MonoBehaviour
 
     private void Start()
     {
+        Application.targetFrameRate = 120;
+
         playGame.onClick.AddListener(SendData);
         closeButton.onClick.AddListener(CloseMenus);
         CloseMenus();

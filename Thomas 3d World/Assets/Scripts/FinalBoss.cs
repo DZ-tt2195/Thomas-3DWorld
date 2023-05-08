@@ -44,7 +44,7 @@ public class FinalBoss : MonoBehaviour
             float xValue = (playerPosition.position.x < this.transform.position.x) ? (Random.Range(-0.8f, -0.2f)) : Random.Range(0.2f, 0.8f);
             float zValue = (playerPosition.position.z < this.transform.position.z) ? (Random.Range(-0.8f, -0.2f)) : Random.Range(0.2f, 0.8f);
 
-            newRock.GetComponentInChildren<Rock>().RockSetup(new Vector3(xValue, 0, zValue), Random.Range(5f, 10f));
+            newRock.GetComponentInChildren<Rock>().RockSetup(new Vector3(xValue, 0, zValue), Random.Range(4f, 8f));
             newRock.transform.SetParent(storage);
         }
         yield return new WaitForSeconds(delay);
