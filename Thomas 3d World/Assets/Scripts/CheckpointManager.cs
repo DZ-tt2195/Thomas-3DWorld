@@ -49,7 +49,9 @@ public class CheckpointManager : MonoBehaviour
             if (lastCheckpoint != null && !Challenges.instance.oneLife)
                 this.transform.position = new Vector3(x.transform.position.x, x.transform.position.y, x.transform.position.z);
 
-            AudioManager.instance.PlaySound(checkpointSound, 0.2f);
+            if (x != null)
+                AudioManager.instance.PlaySound(checkpointSound, 0.2f);
+
             Challenges.instance.stopwatch.Restart();
             Challenges.instance.jumpsLeft = Challenges.instance.oneJump ? 1 : 3;
         }
